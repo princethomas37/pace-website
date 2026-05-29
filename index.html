@@ -41,7 +41,7 @@ html, body {
 .screen.out-r { transform: translateX(100%);  opacity: 0; pointer-events: none; }
 
 /* ─── QUESTION HEADER ─── */
-.question { text-align: center; margin-bottom: 44px; }
+.question { text-align: center; margin-bottom: 58px; }
 .question h2 {
   font-size: clamp(18px, 3.5vw, 34px);
   font-weight: 900; letter-spacing: 0.18em; color: #fff; text-transform: uppercase;
@@ -56,45 +56,47 @@ html, body {
 .grid1 {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  width: min(870px, 92vw);
+  width: min(960px, 94vw);
+  gap: 14px 10px;
 }
 
 /* ─── GRID ITEM ─── */
 .g1-item {
   display: flex; flex-direction: column;
-  align-items: center; padding: 18px 12px 16px;
-  cursor: pointer; border-radius: 6px;
+  align-items: center; padding: 28px 18px 24px;
+  cursor: pointer; border-radius: 8px;
   opacity: 0; transform: translateY(18px);
   transition: background 0.3s ease;
 }
-.g1-item:hover { background: rgba(255,255,255,0.04); }
+.g1-item:hover { background: rgba(255,255,255,0.05); }
 .g1-item.in { animation: up 0.5s ease forwards; }
 
 @keyframes up { to { opacity: 1; transform: translateY(0); } }
 
-.g1-item canvas { display: block; width: 160px; height: 80px; }
-.g1-name { font-size: clamp(9px, 1.1vw, 11px); font-weight: 800; letter-spacing: 0.22em; margin-top: 12px; color: #fff; }
-.g1-sub  { font-size: clamp(7px, 0.9vw, 9px);  font-weight: 400; letter-spacing: 0.1em;  margin-top: 4px;  color: rgba(255,255,255,0.32); }
+.g1-item canvas { display: block; width: 180px; height: 90px; }
+.g1-name { font-size: clamp(10px, 1.2vw, 13px); font-weight: 800; letter-spacing: 0.22em; margin-top: 16px; color: #fff; }
+.g1-sub  { font-size: clamp(8px, 0.9vw, 10px);  font-weight: 400; letter-spacing: 0.1em;  margin-top: 5px;  color: rgba(255,255,255,0.32); }
 
 /* ─── SCREEN 2 GRID (4×3) ─── */
 .grid2 {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  width: min(880px, 94vw);
+  width: min(940px, 96vw);
+  gap: 10px 8px;
 }
 .g2-item {
   display: flex; flex-direction: column;
-  align-items: center; padding: 16px 10px 14px;
-  cursor: pointer; border-radius: 6px;
+  align-items: center; padding: 22px 14px 20px;
+  cursor: pointer; border-radius: 8px;
   opacity: 0; transform: translateY(14px);
   transition: background 0.3s ease;
   text-align: center;
 }
-.g2-item:hover { background: rgba(255,255,255,0.04); }
+.g2-item:hover { background: rgba(255,255,255,0.05); }
 .g2-item.in { animation: up 0.4s ease forwards; }
-.g2-item canvas { display: block; width: 96px; height: 52px; margin-bottom: 8px; }
-.g2-name { font-size: clamp(8px, 0.95vw, 10px); font-weight: 800; letter-spacing: 0.18em; color: #fff; }
-.g2-sub  { font-size: clamp(7px, 0.8vw, 8.5px); font-weight: 400; letter-spacing: 0.08em; color: rgba(255,255,255,0.28); margin-top: 3px; }
+.g2-item canvas { display: block; width: 108px; height: 58px; margin-bottom: 10px; }
+.g2-name { font-size: clamp(9px, 1vw, 11px); font-weight: 800; letter-spacing: 0.18em; color: #fff; }
+.g2-sub  { font-size: clamp(7.5px, 0.85vw, 9.5px); font-weight: 400; letter-spacing: 0.08em; color: rgba(255,255,255,0.28); margin-top: 4px; }
 
 /* ─── BACK BTN ─── */
 .back-btn {
@@ -113,9 +115,11 @@ html, body {
 
 /* MOBILE */
 @media (max-width: 580px) {
-  .grid1 { grid-template-columns: repeat(2, 1fr); }
-  .grid2 { grid-template-columns: repeat(2, 1fr); }
-  .g1-item canvas { width: 110px; height: 55px; }
+  .grid1 { grid-template-columns: repeat(2, 1fr); gap: 8px 6px; }
+  .grid2 { grid-template-columns: repeat(2, 1fr); gap: 6px 4px; }
+  .g1-item { padding: 20px 14px 18px; }
+  .g1-item canvas { width: 130px; height: 65px; }
+  .g2-item { padding: 16px 10px 14px; }
 }
 </style>
 </head>
@@ -5270,7 +5274,7 @@ function buildGrid1() {
     cell.setAttribute('data-key', item.key);
 
     var cnv = document.createElement('canvas');
-    cnv.width = 160; cnv.height = 80;
+    cnv.width = 180; cnv.height = 90;
 
     var nameEl = document.createElement('div');
     nameEl.className = 'g1-name';
@@ -5287,7 +5291,7 @@ function buildGrid1() {
 
     // Draw at rest (t=0)
     var ctx2 = cnv.getContext('2d');
-    item.draw(ctx2, 160, 80, 0);
+    item.draw(ctx2, 180, 90, 0);
 
     // Hover animation — animate only while hovering, freeze on leave
     var animT = 0;
@@ -5297,7 +5301,7 @@ function buildGrid1() {
       if (raf) cancelAnimationFrame(raf);
       function loop() {
         animT += 0.04;
-        item.draw(ctx2, 160, 80, animT);
+        item.draw(ctx2, 180, 90, animT);
         raf = requestAnimationFrame(loop);
       }
       loop();
@@ -5333,18 +5337,18 @@ function buildGrid2(key) {
     // Canvas icon — only if a draw function is provided
     if (item.draw) {
       var cnv = document.createElement('canvas');
-      cnv.width = 96; cnv.height = 52;
+      cnv.width = 108; cnv.height = 58;
       cell.appendChild(cnv);
 
       var ctx2 = cnv.getContext('2d');
-      item.draw(ctx2, 96, 52, 0);
+      item.draw(ctx2, 108, 58, 0);
 
       var animT = 0, raf = null;
       cell.addEventListener('mouseenter', function() {
         if (raf) cancelAnimationFrame(raf);
         function loop() {
           animT += 0.04;
-          item.draw(ctx2, 96, 52, animT);
+          item.draw(ctx2, 108, 58, animT);
           raf = requestAnimationFrame(loop);
         }
         loop();
