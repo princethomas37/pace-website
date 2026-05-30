@@ -295,23 +295,28 @@ html, body {
 }
 #screen3 .chain {
   display: flex; justify-content: center; gap: 0; width: 100%; flex-wrap: nowrap;
+  --cnode-size: clamp(36px, 4.2vw, 44px);
 }
 #screen3 .cstage {
   flex: 1; display: flex; flex-direction: column; align-items: center;
   padding: 0 2px; position: relative;
 }
 #screen3 .cstage:not(:last-child)::after {
-  content: ''; position: absolute; top: clamp(18px, 2.2vw, 22px); right: -50%;
-  width: 100%; height: 2px; background: rgba(255,255,255,0.08); border-radius: 2px;
+  content: ''; position: absolute; z-index: 0;
+  top: calc(var(--cnode-size) / 2);
+  left: calc(50% + var(--cnode-size) / 2);
+  width: calc(100% - var(--cnode-size));
+  height: 2px; transform: translateY(-50%);
+  background: rgba(255,255,255,0.08); border-radius: 2px;
 }
 #screen3 .cstage.done:not(:last-child)::after {
   background: linear-gradient(90deg, rgba(34,211,238,0.5), rgba(167,139,250,0.5));
 }
 #screen3 .cnode {
-  width: clamp(36px, 4.2vw, 44px); height: clamp(36px, 4.2vw, 44px);
+  width: var(--cnode-size); height: var(--cnode-size);
   border-radius: 50%; display: flex; align-items: center; justify-content: center;
-  border: 1px solid rgba(255,255,255,0.14); background: rgba(255,255,255,0.02);
-  z-index: 1; transition: all 0.4s;
+  border: 1px solid rgba(255,255,255,0.14); background: #0d2436;
+  position: relative; z-index: 2; transition: all 0.4s;
 }
 #screen3 .cnode canvas { width: clamp(20px, 2.4vw, 26px); height: clamp(20px, 2.4vw, 26px); }
 #screen3 .cnode.solid {
