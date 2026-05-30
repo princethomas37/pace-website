@@ -6,7 +6,6 @@
 <title>PACE</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700;800;900&display=swap" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -117,213 +116,197 @@ html, body {
 
 /* ─── SCREEN 3 — GAP REVEAL FLOW ─── */
 #screen3 {
-  font-family: 'Space Grotesk', sans-serif;
-  justify-content: flex-start;
-  padding: clamp(28px, 4vw, 50px) 20px;
+  justify-content: center;
+  padding: clamp(16px, 2.5vw, 36px) clamp(10px, 2vw, 20px);
   overflow-y: auto;
 }
 #screen3 .s3-stage {
-  width: 100%;
+  width: min(63vw, 520px);
   display: flex;
   flex-direction: column;
   align-items: center;
 }
-@keyframes s3CardOut { to { opacity: 0; transform: translateY(-18px); } }
+@keyframes s3CardOut { to { opacity: 0; transform: translateY(-12px); } }
 @keyframes s3SlideIn { to { opacity: 1; transform: translateX(0); } }
-@keyframes s3Sheen { 0%, 100% { left: -60%; } 50% { left: 150%; } }
 
 #screen3 .prog {
   display: flex; align-items: center; justify-content: center;
-  margin-bottom: clamp(28px, 4vw, 46px); width: min(580px, 92vw);
+  margin-bottom: clamp(18px, 3vw, 36px); width: 100%;
 }
 #screen3 .pdot {
-  width: 46px; height: 46px; border-radius: 50%; flex-shrink: 0;
+  width: clamp(30px, 3.6vw, 38px); height: clamp(30px, 3.6vw, 38px);
+  border-radius: 50%; flex-shrink: 0;
   display: flex; align-items: center; justify-content: center;
-  border: 1.5px solid rgba(255,255,255,.12); background: rgba(255,255,255,.02);
-  transition: all .45s cubic-bezier(.7,0,.2,1); position: relative;
+  border: 1px solid rgba(255,255,255,0.12); background: rgba(255,255,255,0.02);
+  transition: all 0.4s ease; position: relative;
 }
-#screen3 .pdot canvas { width: 30px; height: 30px; }
+#screen3 .pdot canvas { width: clamp(18px, 2.2vw, 24px); height: clamp(18px, 2.2vw, 24px); }
 #screen3 .pdot.current {
-  border-color: rgba(255,255,255,.9); transform: scale(1.16);
-  box-shadow: 0 0 24px rgba(167,139,250,.4);
+  border-color: rgba(255,255,255,0.55); transform: scale(1.08);
+  box-shadow: 0 0 16px rgba(167,139,250,0.25);
 }
 #screen3 .pdot.done {
-  border-color: rgba(34,211,238,.45); background: rgba(34,211,238,.05);
+  border-color: rgba(34,211,238,0.4); background: rgba(34,211,238,0.05);
 }
 #screen3 .pdot.done::after {
-  content: ''; position: absolute; right: -2px; top: -2px;
-  width: 13px; height: 13px; border-radius: 50%; background: #0d2436;
-  border: 1px solid rgba(34,211,238,.8);
+  content: ''; position: absolute; right: -1px; top: -1px;
+  width: 10px; height: 10px; border-radius: 50%; background: #0d2436;
+  border: 1px solid rgba(34,211,238,0.7);
 }
 #screen3 .pdot.done::before {
   content: ''; position: absolute; right: 1.5px; top: 1.5px;
-  width: 6px; height: 6px; border-radius: 50%;
-  background: rgba(34,211,238,.95); z-index: 1;
+  width: 5px; height: 5px; border-radius: 50%;
+  background: rgba(34,211,238,0.9); z-index: 1;
 }
 #screen3 .pline {
-  flex: 1; height: 2.5px; max-width: 42px; background: rgba(255,255,255,.08);
-  position: relative; overflow: hidden; border-radius: 2px;
+  flex: 1; height: 2px; max-width: clamp(20px, 3vw, 32px);
+  background: rgba(255,255,255,0.08); position: relative; overflow: hidden; border-radius: 2px;
 }
 #screen3 .pline::after {
   content: ''; position: absolute; inset: 0; width: 0;
-  background: linear-gradient(90deg, rgba(34,211,238,.6), rgba(167,139,250,.6));
-  transition: width .5s ease;
+  background: linear-gradient(90deg, rgba(34,211,238,0.5), rgba(167,139,250,0.5));
+  transition: width 0.5s ease;
 }
 #screen3 .pline.done::after { width: 100%; }
 
 #s3-body {
   width: 100%; display: flex; flex-direction: column; align-items: center;
-  min-height: 340px;
+  min-height: 0;
 }
 #screen3 .card {
   width: 100%; display: flex; flex-direction: column; align-items: center;
-  opacity: 0; transform: translateY(20px);
+  opacity: 0; transform: translateY(13px);
 }
-#screen3 .card.in { animation: up .5s ease forwards; }
-#screen3 .card.out { animation: s3CardOut .35s ease forwards; }
+#screen3 .card.in { animation: up 0.5s ease forwards; }
+#screen3 .card.out { animation: s3CardOut 0.35s ease forwards; }
 #screen3 .backstage {
-  margin-top: 28px; font-size: 10px; letter-spacing: .14em;
-  text-transform: uppercase; color: rgba(255,255,255,.32);
-  cursor: pointer; transition: color .2s;
+  margin-top: clamp(16px, 2vw, 24px);
+  font-size: clamp(6px, 0.84vw, 10px);
+  letter-spacing: 0.32em; text-transform: lowercase;
+  color: rgba(255,255,255,0.38); cursor: pointer; transition: color 0.2s;
 }
-#screen3 .backstage:hover { color: rgba(255,255,255,.7); }
+#screen3 .backstage:hover { color: rgba(255,255,255,0.65); }
 #screen3 .backstage.hidden { visibility: hidden; }
 
-#screen3 .tile-head {
-  display: flex; align-items: center; gap: 18px; margin-bottom: 32px; max-width: 560px;
+#screen3 .s3-question {
+  text-align: center;
+  margin-bottom: clamp(18px, 3vw, 32px);
+  width: 100%;
 }
-#screen3 .tile-iconbox {
-  width: 60px; height: 60px; border-radius: 16px; position: relative; flex-shrink: 0;
-  display: flex; align-items: center; justify-content: center;
-  background: linear-gradient(135deg, rgba(167,139,250,.22), rgba(34,211,238,.13));
-  border: 1px solid rgba(255,255,255,.14);
-  box-shadow: 0 6px 22px rgba(167,139,250,.2), inset 0 1px 0 rgba(255,255,255,.16);
-  overflow: hidden;
+#screen3 .s3-stage-label {
+  font-size: clamp(7px, 0.8vw, 11px);
+  font-weight: 800; letter-spacing: 0.22em;
+  text-transform: uppercase; color: rgba(255,255,255,0.45);
 }
-#screen3 .tile-iconbox::after {
-  content: ''; position: absolute; top: -60%; left: -60%; width: 55%; height: 220%;
-  background: linear-gradient(115deg, transparent, rgba(255,255,255,.14), transparent);
-  transform: rotate(18deg); animation: s3Sheen 3.6s ease-in-out infinite;
+#screen3 .s3-stage-q {
+  font-size: clamp(11px, 1.6vw, 16px);
+  font-weight: 700; letter-spacing: 0.06em;
+  color: #fff; line-height: 1.45;
+  margin-top: clamp(8px, 1vw, 12px);
+  max-width: 100%;
 }
-#screen3 .tile-iconbox canvas { width: 38px; height: 38px; position: relative; z-index: 1; }
-#screen3 .tile-stage {
-  font-size: 10px; font-weight: 600; letter-spacing: .26em; text-transform: uppercase;
-  background: linear-gradient(90deg, rgba(167,139,250,.95), rgba(34,211,238,.85));
-  -webkit-background-clip: text; background-clip: text; color: transparent;
-}
-#screen3 .tile-q {
-  font-size: clamp(15px, 2.1vw, 20px); font-weight: 500; color: #fff;
-  line-height: 1.35; margin-top: 6px; max-width: 340px; text-align: left;
-}
+
 #screen3 .tile-opts {
-  display: flex; flex-direction: column; gap: 13px; width: 100%; max-width: 520px;
+  display: flex; flex-direction: column; gap: clamp(6px, 0.8vw, 10px); width: 100%;
 }
 #screen3 .tile-opt {
-  display: flex; align-items: center; gap: 16px; padding: 17px 20px; cursor: pointer;
-  border-radius: 14px; background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.09);
-  transition: all .25s; text-align: left; width: 100%; position: relative; overflow: hidden;
+  display: block; width: 100%; padding: clamp(10px, 1.3vw, 15px) clamp(12px, 1.5vw, 18px);
+  cursor: pointer; border-radius: 8px; border: none;
+  background: transparent; text-align: center;
+  transition: background 0.3s ease;
 }
-#screen3 .tile-opt::before {
-  content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 3px;
-  background: linear-gradient(180deg, rgba(167,139,250,.9), rgba(34,211,238,.9));
-  transform: scaleY(0); transform-origin: top; transition: transform .25s;
-}
-#screen3 .tile-opt:hover {
-  background: rgba(167,139,250,.08); border-color: rgba(167,139,250,.5);
-  transform: translateY(-2px); box-shadow: 0 10px 28px rgba(0,0,0,.35);
-}
-#screen3 .tile-opt:hover::before { transform: scaleY(1); }
-#screen3 .tile-badge {
-  width: 42px; height: 42px; border-radius: 11px; flex-shrink: 0;
-  display: flex; align-items: center; justify-content: center;
-  background: linear-gradient(135deg, rgba(167,139,250,.18), rgba(34,211,238,.12));
-  border: 1px solid rgba(255,255,255,.1); transition: all .25s;
-}
-#screen3 .tile-badge svg { width: 20px; height: 20px; }
-#screen3 .tile-opt:hover .tile-badge {
-  transform: scale(1.08); box-shadow: 0 0 16px rgba(167,139,250,.3);
-}
+#screen3 .tile-opt:hover { background: rgba(255,255,255,0.05); }
 #screen3 .tile-text {
-  font-size: 15px; font-weight: 400; color: rgba(255,255,255,.86); line-height: 1.4;
+  font-size: clamp(8px, 0.95vw, 12px);
+  font-weight: 400; letter-spacing: 0.04em;
+  color: rgba(255,255,255,0.72); line-height: 1.5;
 }
 #screen3 .tile-card-wrap {
   display: flex; flex-direction: column; align-items: center; width: 100%;
 }
 
-#s3-diag { width: 100%; max-width: 640px; margin: 8px 0 28px; }
+#s3-diag { width: 100%; margin: clamp(6px, 1vw, 12px) 0 clamp(16px, 2vw, 24px); }
 #screen3 .diagcard {
-  display: flex; gap: 14px; padding: 15px 18px; margin-bottom: 10px; border-radius: 12px;
-  background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08);
-  border-left: 3px solid; opacity: 0; transform: translateX(-14px);
+  display: flex; gap: clamp(10px, 1.2vw, 14px);
+  padding: clamp(10px, 1.3vw, 14px) clamp(12px, 1.5vw, 16px);
+  margin-bottom: clamp(6px, 0.8vw, 10px); border-radius: 8px;
+  background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.06);
+  border-left: 2px solid; opacity: 0; transform: translateX(-10px);
 }
-#screen3 .diagcard.in { animation: s3SlideIn .45s ease forwards; }
-#screen3 .diagcard.shaky { border-left-color: rgba(251,191,36,.8); }
-#screen3 .diagcard.missing { border-left-color: rgba(248,113,113,.8); }
+#screen3 .diagcard.in { animation: s3SlideIn 0.45s ease forwards; }
+#screen3 .diagcard.shaky { border-left-color: rgba(251,191,36,0.75); }
+#screen3 .diagcard.missing { border-left-color: rgba(248,113,113,0.75); }
 #screen3 .digi {
-  width: 34px; height: 34px; border-radius: 9px; flex-shrink: 0;
+  width: clamp(26px, 3vw, 30px); height: clamp(26px, 3vw, 30px);
+  border-radius: 6px; flex-shrink: 0;
   display: flex; align-items: center; justify-content: center;
 }
-#screen3 .digi.shaky { background: rgba(251,191,36,.14); }
-#screen3 .digi.missing { background: rgba(248,113,113,.14); }
-#screen3 .digi svg { width: 18px; height: 18px; }
+#screen3 .digi.shaky { background: rgba(251,191,36,0.1); }
+#screen3 .digi.missing { background: rgba(248,113,113,0.1); }
+#screen3 .digi svg { width: clamp(14px, 1.6vw, 16px); height: clamp(14px, 1.6vw, 16px); }
 #screen3 .diagbody b {
-  color: #fff; font-weight: 600; font-size: 13px; display: block; margin-bottom: 3px;
+  color: #fff; font-weight: 800; font-size: clamp(8px, 0.9vw, 11px);
+  letter-spacing: 0.12em; text-transform: uppercase;
+  display: block; margin-bottom: 4px;
 }
 #screen3 .diagbody span {
-  font-size: 12.5px; color: rgba(255,255,255,.68); line-height: 1.5;
+  font-size: clamp(7px, 0.85vw, 10px); color: rgba(255,255,255,0.55);
+  line-height: 1.5; letter-spacing: 0.02em;
 }
 #screen3 .chain {
   display: flex; justify-content: center; gap: 0; width: 100%; flex-wrap: nowrap;
 }
 #screen3 .cstage {
   flex: 1; display: flex; flex-direction: column; align-items: center;
-  padding: 0 4px; position: relative;
+  padding: 0 2px; position: relative;
 }
 #screen3 .cstage:not(:last-child)::after {
-  content: ''; position: absolute; top: 28px; right: -50%; width: 100%; height: 3px;
-  background: rgba(255,255,255,.1); border-radius: 2px;
+  content: ''; position: absolute; top: clamp(18px, 2.2vw, 22px); right: -50%;
+  width: 100%; height: 2px; background: rgba(255,255,255,0.08); border-radius: 2px;
 }
 #screen3 .cstage.done:not(:last-child)::after {
-  background: linear-gradient(90deg, rgba(34,211,238,.6), rgba(167,139,250,.6));
+  background: linear-gradient(90deg, rgba(34,211,238,0.5), rgba(167,139,250,0.5));
 }
 #screen3 .cnode {
-  width: 56px; height: 56px; border-radius: 50%;
-  display: flex; align-items: center; justify-content: center;
-  border: 1.5px solid rgba(255,255,255,.16); background: rgba(255,255,255,.03);
-  z-index: 1; transition: all .4s;
+  width: clamp(36px, 4.2vw, 44px); height: clamp(36px, 4.2vw, 44px);
+  border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  border: 1px solid rgba(255,255,255,0.14); background: rgba(255,255,255,0.02);
+  z-index: 1; transition: all 0.4s;
 }
-#screen3 .cnode canvas { width: 34px; height: 34px; }
+#screen3 .cnode canvas { width: clamp(20px, 2.4vw, 26px); height: clamp(20px, 2.4vw, 26px); }
 #screen3 .cnode.solid {
-  border-color: rgba(34,211,238,.85); background: rgba(34,211,238,.12);
-  box-shadow: 0 0 22px rgba(34,211,238,.35);
+  border-color: rgba(34,211,238,0.7); background: rgba(34,211,238,0.08);
+  box-shadow: 0 0 14px rgba(34,211,238,0.2);
 }
 #screen3 .cname {
-  font-size: 9px; font-weight: 600; letter-spacing: .1em;
-  color: rgba(255,255,255,.6); margin-top: 13px; text-transform: uppercase;
+  font-size: clamp(5px, 0.56vw, 8px); font-weight: 800; letter-spacing: 0.14em;
+  color: rgba(255,255,255,0.45); margin-top: clamp(8px, 1vw, 11px); text-transform: uppercase;
 }
 #screen3 .cfix {
-  font-size: 8px; color: rgba(167,139,250,.8); margin-top: 6px; text-align: center;
-  opacity: 0; transition: opacity .4s; min-height: 10px; font-weight: 500;
+  font-size: clamp(5px, 0.5vw, 7px); color: rgba(255,255,255,0.35);
+  margin-top: 4px; text-align: center; opacity: 0;
+  transition: opacity 0.4s; min-height: 8px; font-weight: 400; letter-spacing: 0.06em;
 }
 #screen3 .cfix.show { opacity: 1; }
-#s3-actions { margin-top: 22px; opacity: 0; transition: opacity .5s; }
+#s3-actions { margin-top: clamp(14px, 2vw, 20px); opacity: 0; transition: opacity 0.5s; text-align: center; }
 #s3-actions.show { opacity: 1; }
 #screen3 .btn {
-  padding: 14px 32px; border-radius: 30px; cursor: pointer; font-family: inherit;
-  font-size: 12px; font-weight: 600; letter-spacing: .1em; text-transform: uppercase;
-  border: none; margin: 6px; transition: all .3s;
+  padding: clamp(10px, 1.2vw, 13px) clamp(18px, 2.2vw, 26px);
+  border-radius: 8px; cursor: pointer; font-family: inherit;
+  font-size: clamp(6px, 0.75vw, 9px); font-weight: 800;
+  letter-spacing: 0.18em; text-transform: uppercase;
+  border: 1px solid rgba(255,255,255,0.12); margin: 4px;
+  transition: background 0.3s ease;
 }
 #screen3 .btn-primary {
-  background: linear-gradient(135deg, rgba(167,139,250,.95), rgba(34,211,238,.88));
-  color: #0d2436;
+  background: rgba(255,255,255,0.08); color: #fff;
 }
-#screen3 .btn-primary:hover {
-  transform: translateY(-2px); box-shadow: 0 8px 26px rgba(167,139,250,.4);
-}
+#screen3 .btn-primary:hover { background: rgba(255,255,255,0.13); }
 #screen3 .btn-ghost {
-  background: rgba(255,255,255,.05); color: rgba(255,255,255,.7);
-  border: 1px solid rgba(255,255,255,.15);
+  background: transparent; color: rgba(255,255,255,0.45);
+  border-color: rgba(255,255,255,0.08);
 }
+#screen3 .btn-ghost:hover { color: rgba(255,255,255,0.65); background: rgba(255,255,255,0.04); }
 
 /* MOBILE */
 @media (max-width: 580px) {
@@ -5788,15 +5771,15 @@ var S3_GLY={a:'M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5',
   c:'M3 3v18h18M7 16l4-4 4 4 5-6'};
 
 function s3_renderCard(st,i,opts){
-  var glyset=[S3_GLY.a,S3_GLY.b,S3_GLY.c];
-  var o=opts.map(function(op,k){
+  var o=opts.map(function(op){
     return '<button class="tile-opt" data-state="'+op.state+'">'+
-      '<span class="tile-badge"><svg viewBox="0 0 24 24" fill="none" stroke="url(#s3pg)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="'+glyset[k]+'"/></svg></span>'+
       '<span class="tile-text">'+op.text+'</span></button>';
   }).join('');
-  return '<div class="tile-card-wrap"><div class="tile-head"><div class="tile-iconbox"><canvas width="38" height="38"></canvas></div>'+
-    '<div><div class="tile-stage">'+st.name+'</div><div class="tile-q">'+st.q+'</div></div></div>'+
-    '<svg width="0" height="0"><defs><linearGradient id="s3pg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="rgba(167,139,250,.95)"/><stop offset="1" stop-color="rgba(34,211,238,.9)"/></linearGradient></defs></svg>'+
+  return '<div class="tile-card-wrap">'+
+    '<div class="s3-question">'+
+      '<div class="s3-stage-label">'+st.name+'</div>'+
+      '<div class="s3-stage-q">'+st.q+'</div>'+
+    '</div>'+
     '<div class="tile-opts">'+o+'</div>'+
     '<div class="backstage'+(i===0?' hidden':'')+'">&#8592; previous</div></div>';
 }
@@ -5808,9 +5791,7 @@ function s3_renderStage(i){
   var card=document.createElement('div'); card.className='card';
   card.innerHTML=s3_renderCard(st,i,s3_shuffle(st.options));
   body.appendChild(card);
-  var hc=card.querySelector('.tile-iconbox canvas');
-  if(s3_headStop)s3_headStop();
-  s3_headStop=s3_runCanvas(hc,i,'live');
+  if(s3_headStop){s3_headStop();s3_headStop=null;}
   requestAnimationFrame(function(){card.classList.add('in');});
   card.querySelectorAll('[data-state]').forEach(function(el){
     el.addEventListener('click',function(){
