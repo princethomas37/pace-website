@@ -244,25 +244,17 @@ html, body {
 #screen3 .tile-opt:hover {
   background: rgba(255,255,255,0.05);
   transform: translateY(-1px);
+  border-color: rgba(255,255,255,0.1);
 }
-#screen3 .tile-opt[data-state="solid"]:hover { border-color: rgba(34,211,238,0.25); }
-#screen3 .tile-opt[data-state="shaky"]:hover { border-color: rgba(251,191,36,0.35); }
-#screen3 .tile-opt[data-state="missing"]:hover { border-color: rgba(248,113,113,0.35); }
 #screen3 .tile-badge {
   width: clamp(28px, 3.2vw, 34px); height: clamp(28px, 3.2vw, 34px);
   border-radius: 6px; flex-shrink: 0;
   display: flex; align-items: center; justify-content: center;
-  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.08);
-  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1);
+  transition: transform 0.25s ease;
 }
 #screen3 .tile-badge svg { width: clamp(14px, 1.6vw, 17px); height: clamp(14px, 1.6vw, 17px); }
 #screen3 .tile-opt:hover .tile-badge { transform: scale(1.06); }
-#screen3 .tile-badge-solid { border-color: rgba(34,211,238,0.22); background: rgba(34,211,238,0.06); }
-#screen3 .tile-badge-shaky { border-color: rgba(251,191,36,0.28); background: rgba(251,191,36,0.08); }
-#screen3 .tile-badge-missing { border-color: rgba(248,113,113,0.28); background: rgba(248,113,113,0.08); }
-#screen3 .tile-opt:hover .tile-badge-solid { box-shadow: 0 0 12px rgba(34,211,238,0.2); }
-#screen3 .tile-opt:hover .tile-badge-shaky { box-shadow: 0 0 12px rgba(251,191,36,0.25); }
-#screen3 .tile-opt:hover .tile-badge-missing { box-shadow: 0 0 12px rgba(248,113,113,0.22); }
 #screen3 .tile-text {
   flex: 1;
   font-size: clamp(8px, 0.95vw, 12px);
@@ -5826,24 +5818,20 @@ function s3_paintProg(){
 function s3_shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
 
 var S3_WARN='M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0zM12 9v4M12 17h.01';
-var S3_OPT_ICON={
-  solid:'M9 12l2 2 4-4M21 12a9 9 0 11-18 0 9 9 0 0118 0z',
-  shaky:'M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0zM12 9v4M12 17h.01',
-  missing:'M18 6L6 18M6 6l12 12'
-};
-var S3_OPT_COLOR={
-  solid:'rgba(34,211,238,0.85)',
-  shaky:'rgba(251,191,36,0.9)',
-  missing:'rgba(248,113,113,0.9)'
-};
+var S3_OPT_GLY=[
+  'M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5',
+  'M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z',
+  'M3 3v18h18M7 16l4-4 4 4 5-6'
+];
 
 function s3_renderCard(st,i,opts){
-  var o=opts.map(function(op){
+  var o=opts.map(function(op,k){
     return '<button class="tile-opt" data-state="'+op.state+'">'+
-      '<span class="tile-badge tile-badge-'+op.state+'"><svg viewBox="0 0 24 24" fill="none" stroke="'+S3_OPT_COLOR[op.state]+'" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="'+S3_OPT_ICON[op.state]+'"/></svg></span>'+
+      '<span class="tile-badge"><svg viewBox="0 0 24 24" fill="none" stroke="url(#s3pg)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="'+S3_OPT_GLY[k]+'"/></svg></span>'+
       '<span class="tile-text">'+op.text+'</span></button>';
   }).join('');
   return '<div class="tile-card-wrap">'+
+    '<svg width="0" height="0"><defs><linearGradient id="s3pg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="rgba(167,139,250,0.75)"/><stop offset="1" stop-color="rgba(34,211,238,0.7)"/></linearGradient></defs></svg>'+
     '<div class="s3-question">'+
       '<div class="s3-stage-label">'+st.name+'</div>'+
       '<div class="s3-stage-q">'+st.q+'</div>'+
