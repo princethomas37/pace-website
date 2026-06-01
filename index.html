@@ -60,8 +60,8 @@ body::after {
   text-shadow: 0 0 40px rgba(34,211,238,0.15);
 }
 .question p {
-  font-size: clamp(6px, 0.84vw, 10px);
-  letter-spacing: 0.32em; color: rgba(255,255,255,0.38);
+  font-size: clamp(7px, 0.9vw, 11px);
+  letter-spacing: 0.28em; color: rgba(255,255,255,0.42);
   margin-top: 7px; text-transform: lowercase;
 }
 
@@ -89,7 +89,7 @@ body::after {
 
 .g1-item canvas { display: block; width: clamp(84px, 9.8vw, 154px); height: clamp(42px, 4.9vw, 77px); }
 .g1-name { font-size: clamp(7px, 0.8vw, 12px); font-weight: 800; letter-spacing: 0.22em; margin-top: clamp(7px, 0.98vw, 15px); color: #fff; }
-.g1-sub  { font-size: clamp(6px, 0.6vw, 9px); font-weight: 400; letter-spacing: 0.1em;  margin-top: clamp(3px, 0.35vw, 6px); color: rgba(255,255,255,0.32); }
+.g1-sub  { font-size: clamp(7px, 0.68vw, 10px); font-weight: 400; letter-spacing: 0.08em; margin-top: clamp(4px, 0.4vw, 7px); color: rgba(255,255,255,0.4); line-height: 1.35; }
 
 /* ─── SCREEN 2 GRID (4×3) ─── */
 .grid2 {
@@ -110,8 +110,8 @@ body::after {
 .g2-item:hover canvas { filter: drop-shadow(0 0 12px rgba(167,139,250,0.25)); }
 .g2-item.in { animation: up 0.4s ease forwards; }
 .g2-item canvas { display: block; width: clamp(53px, 6.3vw, 104px); height: clamp(29px, 3.43vw, 56px); margin-bottom: clamp(5px, 0.63vw, 10px); }
-.g2-name { font-size: clamp(6px, 0.7vw, 11px); font-weight: 800; letter-spacing: 0.18em; color: #fff; }
-.g2-sub  { font-size: clamp(5px, 0.56vw, 8px); font-weight: 400; letter-spacing: 0.08em; color: rgba(255,255,255,0.28); margin-top: clamp(2px, 0.28vw, 5px); }
+.g2-name { font-size: clamp(7px, 0.78vw, 12px); font-weight: 800; letter-spacing: 0.16em; color: #fff; }
+.g2-sub  { font-size: clamp(7px, 0.72vw, 10px); font-weight: 400; letter-spacing: 0.06em; color: rgba(255,255,255,0.42); margin-top: clamp(3px, 0.4vw, 6px); line-height: 1.35; }
 
 /* ─── BACK BTN ─── */
 .back-btn {
@@ -791,6 +791,9 @@ body::after {
 @media (max-width: 580px) {
   .grid1 { grid-template-columns: repeat(2, 1fr); }
   .grid2 { grid-template-columns: repeat(2, 1fr); }
+  .g2-sub { font-size: 9px; color: rgba(255,255,255,0.45); }
+  .g2-name { font-size: 10px; }
+  .g1-sub { font-size: 9px; }
 
   .back-btn {
     top: max(14px, env(safe-area-inset-top, 0px) + 10px);
