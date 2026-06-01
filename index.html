@@ -473,9 +473,6 @@ body::after {
 }
 #screen3.s3-results-active .prog { display: none; }
 #screen3.s3-results-active .s3-header {
-  margin-bottom: clamp(12px, 1.6vw, 18px);
-}
-#screen3.s3-results-active .question h2 {
   display: none;
 }
 
@@ -483,50 +480,50 @@ body::after {
   width: 100%;
 }
 #screen3 .s3-results.s3-glass {
-  padding: clamp(20px, 2.4vw, 28px) clamp(16px, 1.8vw, 22px);
+  padding: clamp(16px, 2vw, 22px) clamp(14px, 1.6vw, 18px);
 }
 #screen3 .s3-results-head {
   text-align: center;
-  margin-bottom: clamp(14px, 1.8vw, 20px);
+  margin-bottom: clamp(10px, 1.4vw, 16px);
 }
 #screen3 .s3-results-title {
-  font-size: clamp(18px, 2.4vw, 28px);
+  font-size: clamp(16px, 2.1vw, 24px);
   font-weight: 600;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.07em;
   text-transform: uppercase;
-  margin-bottom: clamp(8px, 1vw, 12px);
+  margin-bottom: clamp(6px, 0.8vw, 10px);
   background: linear-gradient(120deg, #fff 20%, rgba(34,211,238,0.9) 100%);
   -webkit-background-clip: text;
   background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 #screen3 .s3-results-sub {
-  font-size: clamp(7px, 0.9vw, 11px);
+  font-size: clamp(6px, 0.82vw, 10px);
   font-weight: 400;
   color: rgba(255,255,255,0.42);
-  line-height: 1.5;
+  line-height: 1.45;
   max-width: 28em;
   margin: 0 auto;
-  letter-spacing: 0.28em;
+  letter-spacing: 0.24em;
 }
 #screen3 .s3-results-summary {
-  display: flex; flex-wrap: wrap; justify-content: center; gap: 8px;
-  margin: clamp(12px, 1.4vw, 16px) 0 clamp(14px, 1.8vw, 20px);
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 6px;
+  margin: clamp(10px, 1.2vw, 14px) 0 clamp(12px, 1.5vw, 16px);
 }
 #screen3 .s3-results-chain-wrap {
   width: 100%;
-  margin-bottom: clamp(16px, 2vw, 24px);
-  padding: clamp(14px, 1.8vw, 20px) clamp(6px, 1vw, 10px);
+  margin-bottom: clamp(12px, 1.5vw, 18px);
+  padding: clamp(10px, 1.4vw, 16px) clamp(6px, 1vw, 10px);
   border-radius: 14px;
   background: linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%);
   border: 1px solid rgba(255,255,255,0.06);
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);
 }
-#screen3 .chain.results-chain { --cnode-size: clamp(32px, 3.8vw, 40px); }
+#screen3 .chain.results-chain { --cnode-size: clamp(28px, 3.4vw, 36px); }
 #screen3 .s3-sum-pill {
-  font-size: clamp(10px, 1vw, 12px);
+  font-size: clamp(9px, 0.95vw, 11px);
   font-weight: 500;
-  padding: 5px 11px;
+  padding: 4px 10px;
   border-radius: 20px;
   letter-spacing: 0.015em;
   border: 1px solid rgba(255,255,255,0.06);
@@ -538,15 +535,15 @@ body::after {
 #screen3 .s3-sum-pill.solid { color: rgba(34,211,238,0.88); background: rgba(34,211,238,0.05); box-shadow: inset 0 1px 0 rgba(255,255,255,0.05); }
 
 #screen3 .s3-results .s3-legend {
-  display: flex; flex-wrap: wrap; justify-content: center; gap: clamp(8px, 1.2vw, 14px);
-  margin-bottom: clamp(14px, 1.8vw, 20px);
+  display: flex; flex-wrap: wrap; justify-content: center; gap: clamp(6px, 1vw, 12px);
+  margin-bottom: clamp(10px, 1.4vw, 16px);
   padding: 0;
   background: transparent;
   border: none;
 }
 #screen3 .s3-results .s3-legend-item {
   display: flex; align-items: center; gap: 5px;
-  font-size: clamp(9px, 0.95vw, 11px);
+  font-size: clamp(8px, 0.88vw, 10px);
   letter-spacing: 0;
   color: rgba(255,255,255,0.55);
   text-transform: none;
@@ -567,13 +564,13 @@ body::after {
 #screen3 .s3-results .s3-legend-dot.missing { background: rgba(248,113,113,0.9); }
 
 #screen3 .s3-result-cards {
-  display: flex; flex-direction: column; gap: clamp(5px, 0.7vw, 8px);
+  display: flex; flex-direction: column; gap: clamp(4px, 0.6vw, 7px);
   width: 100%;
-  margin-bottom: clamp(4px, 0.6vw, 8px);
+  margin-bottom: clamp(2px, 0.4vw, 6px);
 }
 #screen3 .s3-result-card {
   border-radius: 10px;
-  padding: clamp(10px, 1.2vw, 14px) clamp(10px, 1.2vw, 14px);
+  padding: clamp(8px, 1vw, 11px) clamp(9px, 1.1vw, 12px);
   background: linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -619,7 +616,7 @@ body::after {
   min-width: 0;
 }
 #screen3 .s3-result-tease {
-  font-size: clamp(9px, 0.95vw, 11px);
+  font-size: clamp(8px, 0.88vw, 10px);
   font-weight: 400;
   margin-left: auto;
   flex-shrink: 1;
@@ -634,7 +631,7 @@ body::after {
 
 #screen3 .s3-results-foot {
   text-align: center;
-  margin-top: clamp(16px, 2vw, 22px);
+  margin-top: clamp(12px, 1.5vw, 16px);
 }
 #screen3 .s3-result-name {
   font-size: clamp(7px, 0.78vw, 12px);
@@ -800,7 +797,7 @@ body::after {
 
 #s3-actions { margin-top: clamp(14px, 2vw, 20px); opacity: 0; transition: opacity 0.5s; text-align: center; }
 #screen3.s3-results-active #s3-actions {
-  margin-top: clamp(10px, 1.4vw, 16px);
+  margin-top: clamp(8px, 1.2vw, 12px);
 }
 #screen3.s3-results-active .btn {
   margin: 6px;
@@ -938,62 +935,55 @@ body::after {
   }
 
   #screen3.s3-results-active {
-    padding-top: max(40px, calc(env(safe-area-inset-top, 0px) + 36px));
-    padding-bottom: max(12px, calc(env(safe-area-inset-bottom, 0px) + 10px));
+    padding-top: max(36px, calc(env(safe-area-inset-top, 0px) + 32px));
+    padding-bottom: max(10px, calc(env(safe-area-inset-bottom, 0px) + 8px));
   }
   #screen3.s3-results-active .s3-stage {
     margin-top: 0;
     margin-bottom: 0;
   }
 
-  #screen3.s3-results-active .s3-header {
-    margin-bottom: 6px;
-  }
-  #screen3.s3-results-active .question p {
-    margin-bottom: 6px;
-  }
-
   #screen3 .s3-results.s3-glass {
-    padding: 16px 12px;
+    padding: 14px 11px;
     border-radius: 12px;
   }
 
   #screen3 .s3-results-head {
-    margin-bottom: 12px;
+    margin-bottom: 10px;
   }
   #screen3 .s3-results-title {
-    font-size: 17px;
+    font-size: 15px;
     letter-spacing: 0.05em;
-    margin-bottom: 6px;
+    margin-bottom: 5px;
   }
   #screen3 .s3-results-sub {
-    font-size: 9px;
+    font-size: 8px;
     padding: 0 4px;
-    letter-spacing: 0.24em;
+    letter-spacing: 0.22em;
   }
   #screen3 .s3-results-summary {
-    margin: 10px 0 12px;
-    gap: 6px;
+    margin: 8px 0 10px;
+    gap: 5px;
   }
   #screen3 .s3-results-chain-wrap {
-    padding: 12px 4px;
-    margin-bottom: 14px;
+    padding: 10px 4px;
+    margin-bottom: 10px;
   }
-  #screen3 .chain.results-chain { --cnode-size: 30px; }
+  #screen3 .chain.results-chain { --cnode-size: 26px; }
   #screen3 .s3-sum-pill {
-    font-size: 10px;
-    padding: 4px 9px;
+    font-size: 9px;
+    padding: 3px 8px;
   }
 
   #screen3 .s3-results .s3-legend {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 6px 10px;
-    margin-bottom: 12px;
+    gap: 5px 8px;
+    margin-bottom: 10px;
   }
   #screen3 .s3-results .s3-legend-item {
-    font-size: 9px;
+    font-size: 8px;
   }
   #screen3 .s3-results .s3-legend-dot {
     width: 6px;
@@ -1027,36 +1017,30 @@ body::after {
   }
 
   #screen3 .s3-result-card {
-    padding: 9px 10px;
+    padding: 7px 9px;
   }
   #screen3 .s3-result-icon {
-    width: 24px;
-    height: 24px;
+    width: 22px;
+    height: 22px;
   }
   #screen3 .s3-result-icon canvas {
-    width: 13px;
-    height: 13px;
-  }
-  #screen3 .s3-result-top {
-    gap: 6px;
-    flex-wrap: nowrap;
+    width: 12px;
+    height: 12px;
   }
   #screen3 .s3-result-name {
-    font-size: 9px;
+    font-size: 8px;
     letter-spacing: 0.1em;
   }
   #screen3 .s3-result-tease {
-    font-size: 8px;
-    margin-left: auto;
-    text-align: right;
+    font-size: 7px;
   }
 
   #screen3 .s3-results-foot {
-    margin-top: 14px;
+    margin-top: 10px;
   }
 
   #screen3.s3-results-active #s3-actions {
-    margin-top: 10px;
+    margin-top: 8px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
