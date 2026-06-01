@@ -480,18 +480,18 @@ body::after {
   width: 100%;
 }
 #screen3 .s3-results.s3-glass {
-  padding: clamp(16px, 2vw, 22px) clamp(14px, 1.6vw, 18px);
+  padding: clamp(20px, 2.4vw, 28px) clamp(18px, 2vw, 24px);
 }
 #screen3 .s3-results-head {
   text-align: center;
-  margin-bottom: clamp(10px, 1.4vw, 16px);
+  margin-bottom: clamp(16px, 2vw, 22px);
 }
 #screen3 .s3-results-title {
   font-size: clamp(16px, 2.1vw, 24px);
   font-weight: 600;
   letter-spacing: 0.07em;
   text-transform: uppercase;
-  margin-bottom: clamp(6px, 0.8vw, 10px);
+  margin-bottom: clamp(10px, 1.2vw, 14px);
   background: linear-gradient(120deg, #fff 20%, rgba(34,211,238,0.9) 100%);
   -webkit-background-clip: text;
   background-clip: text;
@@ -501,29 +501,33 @@ body::after {
   font-size: clamp(6px, 0.82vw, 10px);
   font-weight: 400;
   color: rgba(255,255,255,0.42);
-  line-height: 1.45;
+  line-height: 1.6;
   max-width: 28em;
   margin: 0 auto;
   letter-spacing: 0.24em;
 }
 #screen3 .s3-results-summary {
-  display: flex; flex-wrap: wrap; justify-content: center; gap: 6px;
-  margin: clamp(10px, 1.2vw, 14px) 0 clamp(12px, 1.5vw, 16px);
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 8px;
+  margin: clamp(14px, 1.6vw, 18px) 0 clamp(18px, 2.2vw, 24px);
 }
 #screen3 .s3-results-chain-wrap {
   width: 100%;
-  margin-bottom: clamp(12px, 1.5vw, 18px);
-  padding: clamp(10px, 1.4vw, 16px) clamp(6px, 1vw, 10px);
+  margin-bottom: clamp(18px, 2.2vw, 24px);
+  padding: clamp(14px, 1.6vw, 18px) clamp(8px, 1.2vw, 12px);
   border-radius: 14px;
   background: linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%);
   border: 1px solid rgba(255,255,255,0.06);
   box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);
 }
 #screen3 .chain.results-chain { --cnode-size: clamp(28px, 3.4vw, 36px); }
+#screen3 .chain.results-chain .cname {
+  margin-top: clamp(5px, 0.7vw, 8px);
+  font-size: clamp(4px, 0.5vw, 7px);
+}
 #screen3 .s3-sum-pill {
   font-size: clamp(9px, 0.95vw, 11px);
   font-weight: 500;
-  padding: 4px 10px;
+  padding: 5px 12px;
   border-radius: 20px;
   letter-spacing: 0.015em;
   border: 1px solid rgba(255,255,255,0.06);
@@ -535,9 +539,9 @@ body::after {
 #screen3 .s3-sum-pill.solid { color: rgba(34,211,238,0.88); background: rgba(34,211,238,0.05); box-shadow: inset 0 1px 0 rgba(255,255,255,0.05); }
 
 #screen3 .s3-results .s3-legend {
-  display: flex; flex-wrap: wrap; justify-content: center; gap: clamp(6px, 1vw, 12px);
-  margin-bottom: clamp(10px, 1.4vw, 16px);
-  padding: 0;
+  display: flex; flex-wrap: wrap; justify-content: center; gap: clamp(8px, 1.2vw, 14px);
+  margin-bottom: clamp(16px, 2vw, 22px);
+  padding: clamp(6px, 0.8vw, 10px) 0;
   background: transparent;
   border: none;
 }
@@ -564,13 +568,13 @@ body::after {
 #screen3 .s3-results .s3-legend-dot.missing { background: rgba(248,113,113,0.9); }
 
 #screen3 .s3-result-cards {
-  display: flex; flex-direction: column; gap: clamp(4px, 0.6vw, 7px);
+  display: flex; flex-direction: column; gap: clamp(8px, 1vw, 11px);
   width: 100%;
-  margin-bottom: clamp(2px, 0.4vw, 6px);
+  margin-bottom: clamp(4px, 0.6vw, 8px);
 }
 #screen3 .s3-result-card {
-  border-radius: 10px;
-  padding: clamp(8px, 1vw, 11px) clamp(9px, 1.1vw, 12px);
+  border-radius: 11px;
+  padding: clamp(11px, 1.3vw, 14px) clamp(12px, 1.4vw, 16px);
   background: linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -593,7 +597,7 @@ body::after {
 #screen3 .s3-result-card.shaky,
 #screen3 .s3-result-card.missing { border-left: none; }
 #screen3 .s3-result-glow {
-  width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0;
+  width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
 }
 #screen3 .s3-result-icon {
   width: clamp(24px, 2.8vw, 30px); height: clamp(24px, 2.8vw, 30px);
@@ -611,7 +615,7 @@ body::after {
 #screen3 .s3-result-card.shaky .s3-result-glow { background: rgba(251,191,36,0.9); box-shadow: 0 0 10px rgba(251,191,36,0.45); }
 #screen3 .s3-result-card.missing .s3-result-glow { background: rgba(248,113,113,0.9); box-shadow: 0 0 10px rgba(248,113,113,0.45); }
 #screen3 .s3-result-top {
-  display: flex; align-items: center; gap: clamp(8px, 1vw, 10px);
+  display: flex; align-items: center; gap: clamp(10px, 1.2vw, 14px);
   flex-wrap: nowrap;
   min-width: 0;
 }
@@ -631,7 +635,8 @@ body::after {
 
 #screen3 .s3-results-foot {
   text-align: center;
-  margin-top: clamp(12px, 1.5vw, 16px);
+  margin-top: clamp(18px, 2.2vw, 24px);
+  padding-top: clamp(4px, 0.6vw, 8px);
 }
 #screen3 .s3-result-name {
   font-size: clamp(7px, 0.78vw, 12px);
@@ -797,7 +802,7 @@ body::after {
 
 #s3-actions { margin-top: clamp(14px, 2vw, 20px); opacity: 0; transition: opacity 0.5s; text-align: center; }
 #screen3.s3-results-active #s3-actions {
-  margin-top: clamp(8px, 1.2vw, 12px);
+  margin-top: clamp(14px, 1.8vw, 20px);
 }
 #screen3.s3-results-active .btn {
   margin: 6px;
@@ -944,43 +949,49 @@ body::after {
   }
 
   #screen3 .s3-results.s3-glass {
-    padding: 14px 11px;
-    border-radius: 12px;
+    padding: 18px 14px;
+    border-radius: 14px;
   }
 
   #screen3 .s3-results-head {
-    margin-bottom: 10px;
+    margin-bottom: 14px;
   }
   #screen3 .s3-results-title {
     font-size: 15px;
     letter-spacing: 0.05em;
-    margin-bottom: 5px;
+    margin-bottom: 8px;
   }
   #screen3 .s3-results-sub {
     font-size: 8px;
-    padding: 0 4px;
+    padding: 0 6px;
     letter-spacing: 0.22em;
+    line-height: 1.55;
   }
   #screen3 .s3-results-summary {
-    margin: 8px 0 10px;
-    gap: 5px;
+    margin: 12px 0 14px;
+    gap: 7px;
   }
   #screen3 .s3-results-chain-wrap {
-    padding: 10px 4px;
-    margin-bottom: 10px;
+    padding: 12px 6px;
+    margin-bottom: 14px;
   }
   #screen3 .chain.results-chain { --cnode-size: 26px; }
+  #screen3 .chain.results-chain .cname {
+    margin-top: 5px;
+    font-size: 4px;
+  }
   #screen3 .s3-sum-pill {
     font-size: 9px;
-    padding: 3px 8px;
+    padding: 4px 10px;
   }
 
   #screen3 .s3-results .s3-legend {
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
-    gap: 5px 8px;
-    margin-bottom: 10px;
+    gap: 6px 10px;
+    margin-bottom: 14px;
+    padding: 6px 0;
   }
   #screen3 .s3-results .s3-legend-item {
     font-size: 8px;
@@ -1017,15 +1028,18 @@ body::after {
   }
 
   #screen3 .s3-result-card {
-    padding: 7px 9px;
+    padding: 10px 12px;
+    border-radius: 10px;
   }
-  #screen3 .s3-result-icon {
-    width: 22px;
-    height: 22px;
+  #screen3 .s3-result-cards {
+    gap: 8px;
   }
-  #screen3 .s3-result-icon canvas {
-    width: 12px;
-    height: 12px;
+  #screen3 .s3-result-top {
+    gap: 10px;
+  }
+  #screen3 .s3-result-glow {
+    width: 7px;
+    height: 7px;
   }
   #screen3 .s3-result-name {
     font-size: 8px;
@@ -1036,11 +1050,12 @@ body::after {
   }
 
   #screen3 .s3-results-foot {
-    margin-top: 10px;
+    margin-top: 14px;
+    padding-top: 4px;
   }
 
   #screen3.s3-results-active #s3-actions {
-    margin-top: 8px;
+    margin-top: 12px;
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
@@ -6675,14 +6690,12 @@ function s3_renderResults(){
     card.style.animationDelay=(0.08+i*0.07)+'s';
     var html=
       '<div class="s3-result-top">'+
-        '<span class="s3-result-icon"><canvas width="28" height="28"></canvas></span>'+
+        '<span class="s3-result-glow"></span>'+
         '<span class="s3-result-name">'+st.name+'</span>'+
         '<span class="s3-result-tease">'+s3_teaseLine(state)+'</span>'+
       '</div>';
     card.innerHTML=html;
     cards.appendChild(card);
-    var iconCnv=card.querySelector('.s3-result-icon canvas');
-    if(iconCnv) s3_chainRafs.push(s3_runCanvas(iconCnv,i,state));
   });
   root.appendChild(cards);
 
