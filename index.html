@@ -163,7 +163,6 @@ body::after {
   letter-spacing: 0.28em;
   color: rgba(255,255,255,0.42);
   margin-top: 7px;
-  text-transform: lowercase;
 }
 @keyframes s3CardOut { to { opacity: 0; transform: translateY(-12px); } }
 @keyframes s3SlideIn { to { opacity: 1; transform: translateX(0); } }
@@ -484,11 +483,11 @@ body::after {
   width: 100%;
 }
 #screen3 .s3-results.s3-glass {
-  padding: clamp(16px, 2vw, 24px) clamp(14px, 1.6vw, 20px);
+  padding: clamp(20px, 2.4vw, 28px) clamp(16px, 1.8vw, 22px);
 }
 #screen3 .s3-results-head {
   text-align: center;
-  margin-bottom: clamp(10px, 1.2vw, 14px);
+  margin-bottom: clamp(14px, 1.8vw, 20px);
 }
 #screen3 .s3-results-title {
   font-size: clamp(18px, 2.4vw, 28px);
@@ -509,12 +508,21 @@ body::after {
   max-width: 28em;
   margin: 0 auto;
   letter-spacing: 0.28em;
-  text-transform: lowercase;
 }
 #screen3 .s3-results-summary {
   display: flex; flex-wrap: wrap; justify-content: center; gap: 8px;
-  margin: clamp(8px, 1vw, 12px) 0 clamp(10px, 1.2vw, 14px);
+  margin: clamp(12px, 1.4vw, 16px) 0 clamp(14px, 1.8vw, 20px);
 }
+#screen3 .s3-results-chain-wrap {
+  width: 100%;
+  margin-bottom: clamp(16px, 2vw, 24px);
+  padding: clamp(14px, 1.8vw, 20px) clamp(6px, 1vw, 10px);
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%);
+  border: 1px solid rgba(255,255,255,0.06);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);
+}
+#screen3 .chain.results-chain { --cnode-size: clamp(32px, 3.8vw, 40px); }
 #screen3 .s3-sum-pill {
   font-size: clamp(10px, 1vw, 12px);
   font-weight: 500;
@@ -531,7 +539,7 @@ body::after {
 
 #screen3 .s3-results .s3-legend {
   display: flex; flex-wrap: wrap; justify-content: center; gap: clamp(8px, 1.2vw, 14px);
-  margin-bottom: clamp(10px, 1.2vw, 14px);
+  margin-bottom: clamp(14px, 1.8vw, 20px);
   padding: 0;
   background: transparent;
   border: none;
@@ -559,13 +567,13 @@ body::after {
 #screen3 .s3-results .s3-legend-dot.missing { background: rgba(248,113,113,0.9); }
 
 #screen3 .s3-result-cards {
-  display: flex; flex-direction: column; gap: clamp(3px, 0.5vw, 6px);
+  display: flex; flex-direction: column; gap: clamp(5px, 0.7vw, 8px);
   width: 100%;
-  margin-bottom: clamp(2px, 0.4vw, 6px);
+  margin-bottom: clamp(4px, 0.6vw, 8px);
 }
 #screen3 .s3-result-card {
   border-radius: 10px;
-  padding: clamp(8px, 1vw, 12px) clamp(10px, 1.2vw, 14px);
+  padding: clamp(10px, 1.2vw, 14px) clamp(10px, 1.2vw, 14px);
   background: linear-gradient(135deg, rgba(255,255,255,0.06) 0%, rgba(255,255,255,0.02) 100%);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
@@ -624,25 +632,9 @@ body::after {
 #screen3 .s3-result-card.shaky .s3-result-tease { color: rgba(251,191,36,0.8); }
 #screen3 .s3-result-card.missing .s3-result-tease { color: rgba(248,113,113,0.85); }
 
-#screen3 .s3-results-cta-box {
+#screen3 .s3-results-foot {
   text-align: center;
-  padding: clamp(10px, 1.2vw, 14px) 0 0;
-  margin-top: clamp(8px, 1vw, 12px);
-  border-top: 1px solid rgba(255,255,255,0.05);
-  background: transparent;
-  border-left: none;
-  border-right: none;
-  border-bottom: none;
-  border-radius: 0;
-}
-#screen3 .s3-results-cta-box p {
-  font-size: clamp(10px, 1.1vw, 13px);
-  color: rgba(255,255,255,0.58);
-  line-height: 1.45;
-  margin: 0;
-  max-width: 26em;
-  margin-left: auto; margin-right: auto;
-  letter-spacing: 0.02em;
+  margin-top: clamp(16px, 2vw, 22px);
 }
 #screen3 .s3-result-name {
   font-size: clamp(7px, 0.78vw, 12px);
@@ -962,27 +954,32 @@ body::after {
   }
 
   #screen3 .s3-results.s3-glass {
-    padding: 12px 10px;
+    padding: 16px 12px;
     border-radius: 12px;
   }
 
   #screen3 .s3-results-head {
-    margin-bottom: 8px;
+    margin-bottom: 12px;
   }
   #screen3 .s3-results-title {
     font-size: 17px;
     letter-spacing: 0.05em;
-    margin-bottom: 4px;
+    margin-bottom: 6px;
   }
   #screen3 .s3-results-sub {
-    font-size: 8px;
-    padding: 0 2px;
-    letter-spacing: 0.2em;
+    font-size: 9px;
+    padding: 0 4px;
+    letter-spacing: 0.24em;
   }
   #screen3 .s3-results-summary {
-    margin: 6px 0 8px;
+    margin: 10px 0 12px;
     gap: 6px;
   }
+  #screen3 .s3-results-chain-wrap {
+    padding: 12px 4px;
+    margin-bottom: 14px;
+  }
+  #screen3 .chain.results-chain { --cnode-size: 30px; }
   #screen3 .s3-sum-pill {
     font-size: 10px;
     padding: 4px 9px;
@@ -993,7 +990,7 @@ body::after {
     flex-wrap: wrap;
     justify-content: center;
     gap: 6px 10px;
-    margin-bottom: 8px;
+    margin-bottom: 12px;
   }
   #screen3 .s3-results .s3-legend-item {
     font-size: 9px;
@@ -1030,7 +1027,7 @@ body::after {
   }
 
   #screen3 .s3-result-card {
-    padding: 7px 8px;
+    padding: 9px 10px;
   }
   #screen3 .s3-result-icon {
     width: 24px;
@@ -1054,14 +1051,8 @@ body::after {
     text-align: right;
   }
 
-  #screen3 .s3-results-cta-box {
-    padding-top: 8px;
-    margin-top: 6px;
-  }
-  #screen3 .s3-results-cta-box p {
-    font-size: 10px;
-    line-height: 1.4;
-    padding: 0 2px;
+  #screen3 .s3-results-foot {
+    margin-top: 14px;
   }
 
   #screen3.s3-results-active #s3-actions {
@@ -6394,7 +6385,7 @@ function s3_updateHeader() {
   var titleEl = document.getElementById('s3-flow-title');
   if (ctxEl) {
     ctxEl.textContent = (userSelection.category && userSelection.subtype)
-      ? (s3CatLabel(userSelection.category) + ' · ' + userSelection.subtype).toLowerCase()
+      ? s3CatLabel(userSelection.category) + ' · ' + userSelection.subtype
       : '';
   }
   if (titleEl) titleEl.textContent = S3_FLOW.title || '';
@@ -6674,7 +6665,7 @@ function s3_renderResults(){
   var head=document.createElement('div'); head.className='s3-results-head';
   head.innerHTML=
     '<div class="s3-results-title">Your flow at a glance</div>'+
-    '<p class="s3-results-sub">we mapped where you stand at each stage</p>';
+    '<p class="s3-results-sub">We mapped where you stand at each stage</p>';
   root.appendChild(head);
 
   var pills=document.createElement('div'); pills.className='s3-results-summary';
@@ -6682,6 +6673,13 @@ function s3_renderResults(){
   if(shakyN) pills.innerHTML+='<span class="s3-sum-pill shaky">'+shakyN+' need work</span>';
   if(solidN) pills.innerHTML+='<span class="s3-sum-pill solid">'+solidN+' solid</span>';
   root.appendChild(pills);
+
+  var chainWrap=document.createElement('div'); chainWrap.className='s3-results-chain-wrap';
+  chainWrap.appendChild(s3_buildChainRow('results-chain',
+    function(i){ return s3_answers[i]||'missing'; },
+    function(i){ return s3_answers[i]||'next'; }
+  ));
+  root.appendChild(chainWrap);
 
   root.insertAdjacentHTML('beforeend', s3_legendHtml());
 
@@ -6704,11 +6702,11 @@ function s3_renderResults(){
   });
   root.appendChild(cards);
 
-  var ctaBox=document.createElement('div'); ctaBox.className='s3-results-cta-box';
-  ctaBox.innerHTML=data.gaps.length
-    ? '<p>We know which stages need work and what to do at each one.</p>'
-    : '<p>Your flow looks tight on the surface. A quick walkthrough can still surface what\u2019s hiding between stages.</p>';
-  root.appendChild(ctaBox);
+  var foot=document.createElement('div'); foot.className='s3-results-foot';
+  foot.innerHTML=data.gaps.length
+    ? '<p class="s3-results-sub">We know which stages need work and what to do at each one</p>'
+    : '<p class="s3-results-sub">Your flow looks tight on the surface. A quick walkthrough can still surface what\u2019s hiding between stages</p>';
+  root.appendChild(foot);
   body.appendChild(root);
 
   var a=document.getElementById('s3-actions');
