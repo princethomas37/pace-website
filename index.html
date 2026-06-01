@@ -15,6 +15,18 @@ html, body {
   font-family: 'Inter', sans-serif;
   overflow: hidden;
   color: white;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body::after {
+  content: '';
+  position: fixed; inset: 0;
+  pointer-events: none; z-index: 0;
+  background:
+    radial-gradient(ellipse 90% 55% at 50% -10%, rgba(34,211,238,0.07), transparent 58%),
+    radial-gradient(ellipse 55% 45% at 100% 85%, rgba(167,139,250,0.06), transparent 52%),
+    radial-gradient(ellipse 45% 40% at 0% 70%, rgba(14,165,233,0.05), transparent 50%);
 }
 
 /* ─── ORBS ─── */
@@ -45,6 +57,7 @@ html, body {
 .question h2 {
   font-size: clamp(14px, 2.45vw, 31px);
   font-weight: 900; letter-spacing: 0.18em; color: #fff; text-transform: uppercase;
+  text-shadow: 0 0 40px rgba(34,211,238,0.15);
 }
 .question p {
   font-size: clamp(6px, 0.84vw, 10px);
@@ -69,6 +82,7 @@ html, body {
   transition: background 0.3s ease;
 }
 .g1-item:hover { background: rgba(255,255,255,0.05); }
+.g1-item:hover canvas { filter: drop-shadow(0 0 14px rgba(34,211,238,0.28)); }
 .g1-item.in { animation: up 0.5s ease forwards; }
 
 @keyframes up { to { opacity: 1; transform: translateY(0); } }
@@ -93,6 +107,7 @@ html, body {
   text-align: center;
 }
 .g2-item:hover { background: rgba(255,255,255,0.05); }
+.g2-item:hover canvas { filter: drop-shadow(0 0 12px rgba(167,139,250,0.25)); }
 .g2-item.in { animation: up 0.4s ease forwards; }
 .g2-item canvas { display: block; width: clamp(53px, 6.3vw, 104px); height: clamp(29px, 3.43vw, 56px); margin-bottom: clamp(5px, 0.63vw, 10px); }
 .g2-name { font-size: clamp(6px, 0.7vw, 11px); font-weight: 800; letter-spacing: 0.18em; color: #fff; }
@@ -143,6 +158,7 @@ html, body {
   text-transform: uppercase;
   color: rgba(34,211,238,0.72);
   margin-bottom: clamp(10px, 1.4vw, 16px);
+  text-shadow: 0 0 20px rgba(34,211,238,0.2);
 }
 #screen3:not(.s3-results-active) .s3-context {
   margin-bottom: clamp(14px, 2vw, 22px);
@@ -177,7 +193,7 @@ html, body {
 #screen3 .pdot canvas { width: clamp(18px, 2.2vw, 24px); height: clamp(18px, 2.2vw, 24px); }
 #screen3 .pdot.current {
   border-color: rgba(255,255,255,0.55); transform: scale(1.08);
-  box-shadow: 0 0 16px rgba(167,139,250,0.25);
+  box-shadow: 0 0 20px rgba(167,139,250,0.35), 0 0 36px rgba(34,211,238,0.12);
 }
 #screen3 .pdot.answer-solid {
   border-color: rgba(34,211,238,0.45); background: rgba(34,211,238,0.06);
@@ -253,6 +269,20 @@ html, body {
   margin-bottom: clamp(18px, 2.4vw, 28px);
   width: 100%;
 }
+#screen3 .s3-stage-hero {
+  display: flex; flex-direction: column; align-items: center; gap: clamp(10px, 1.2vw, 14px);
+}
+#screen3 .s3-stage-icon {
+  width: clamp(44px, 5vw, 52px); height: clamp(44px, 5vw, 52px);
+  border-radius: 50%;
+  display: flex; align-items: center; justify-content: center;
+  background: radial-gradient(circle at 35% 30%, rgba(34,211,238,0.12), rgba(167,139,250,0.06) 55%, rgba(255,255,255,0.02));
+  border: 1px solid rgba(255,255,255,0.1);
+  box-shadow: 0 0 24px rgba(34,211,238,0.12), inset 0 1px 0 rgba(255,255,255,0.08);
+}
+#screen3 .s3-stage-icon canvas {
+  width: clamp(24px, 2.8vw, 28px); height: clamp(24px, 2.8vw, 28px);
+}
 #screen3 .s3-stage-label {
   font-size: clamp(9px, 0.95vw, 11px);
   font-weight: 700; letter-spacing: 0.18em;
@@ -271,19 +301,35 @@ html, body {
   display: flex; flex-direction: column; gap: clamp(6px, 0.8vw, 10px); width: 100%;
   margin-top: clamp(10px, 1.2vw, 14px);
   padding-top: clamp(16px, 2vw, 24px);
-  border-top: 1px solid rgba(255,255,255,0.05);
+  border-top: 1px solid rgba(255,255,255,0.06);
 }
 #screen3 .tile-opt {
-  display: flex; align-items: center;
-  width: 100%; padding: clamp(14px, 1.6vw, 18px) clamp(10px, 1.2vw, 14px);
-  cursor: pointer; border-radius: 8px;
-  border: none;
-  background: transparent;
+  display: flex; align-items: center; gap: clamp(10px, 1.2vw, 14px);
+  width: 100%; padding: clamp(14px, 1.6vw, 18px) clamp(12px, 1.4vw, 16px);
+  cursor: pointer; border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.05);
+  background: rgba(255,255,255,0.02);
   text-align: left;
-  transition: background 0.3s ease, color 0.25s ease;
+  transition: background 0.3s ease, border-color 0.3s ease, transform 0.25s ease, box-shadow 0.3s ease;
 }
 #screen3 .tile-opt:hover {
-  background: rgba(255,255,255,0.05);
+  background: rgba(255,255,255,0.06);
+  border-color: rgba(34,211,238,0.2);
+  transform: translateX(3px);
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15), 0 0 16px rgba(34,211,238,0.08);
+}
+#screen3 .tile-badge {
+  width: clamp(30px, 3.4vw, 36px); height: clamp(30px, 3.4vw, 36px);
+  border-radius: 8px; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+#screen3 .tile-badge svg { width: clamp(14px, 1.6vw, 17px); height: clamp(14px, 1.6vw, 17px); }
+#screen3 .tile-opt:hover .tile-badge {
+  transform: scale(1.05);
+  box-shadow: 0 0 12px rgba(167,139,250,0.2);
 }
 #screen3 .tile-text {
   flex: 1;
@@ -292,10 +338,36 @@ html, body {
   color: rgba(255,255,255,0.72); line-height: 1.65;
   transition: color 0.25s ease;
 }
-#screen3 .tile-opt:hover .tile-text { color: rgba(255,255,255,0.9); }
+#screen3 .tile-arrow {
+  font-size: clamp(12px, 1.2vw, 14px);
+  color: rgba(255,255,255,0.18);
+  transition: color 0.25s ease, transform 0.25s ease;
+  flex-shrink: 0;
+}
+#screen3 .tile-opt:hover .tile-text { color: rgba(255,255,255,0.92); }
+#screen3 .tile-opt:hover .tile-arrow { color: rgba(34,211,238,0.75); transform: translateX(2px); }
+#screen3 .s3-glass {
+  position: relative; width: 100%;
+  padding: clamp(22px, 2.6vw, 32px) clamp(18px, 2.2vw, 26px);
+  border-radius: 16px;
+  background: rgba(255,255,255,0.025);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: 1px solid rgba(255,255,255,0.08);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.22), inset 0 1px 0 rgba(255,255,255,0.07);
+}
+#screen3 .s3-glass::before {
+  content: '';
+  position: absolute; inset: -1px; border-radius: 17px; padding: 1px;
+  background: linear-gradient(145deg, rgba(34,211,238,0.22), rgba(167,139,250,0.12) 45%, rgba(255,255,255,0.04));
+  -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor;
+  mask-composite: exclude;
+  pointer-events: none;
+}
 #screen3 .tile-card-wrap {
   display: flex; flex-direction: column; align-items: stretch; width: 100%;
-  padding: clamp(4px, 0.6vw, 8px) 0;
 }
 
 #s3-diag { width: 100%; margin: clamp(6px, 1vw, 12px) 0 clamp(16px, 2vw, 24px); }
@@ -392,9 +464,12 @@ html, body {
 #screen3 .s3-results-title {
   font-size: clamp(14px, 1.55vw, 18px);
   font-weight: 600;
-  color: rgba(255,255,255,0.92);
   letter-spacing: 0.02em;
   margin-bottom: clamp(8px, 1vw, 12px);
+  background: linear-gradient(120deg, #fff 20%, rgba(34,211,238,0.9) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 #screen3 .s3-results-sub {
   font-size: clamp(11px, 1.2vw, 13px);
@@ -416,9 +491,9 @@ html, body {
   letter-spacing: 0.02em;
   border: none;
 }
-#screen3 .s3-sum-pill.missing { color: rgba(248,113,113,0.9); background: rgba(248,113,113,0.08); }
-#screen3 .s3-sum-pill.shaky { color: rgba(251,191,36,0.9); background: rgba(251,191,36,0.07); }
-#screen3 .s3-sum-pill.solid { color: rgba(34,211,238,0.9); background: rgba(34,211,238,0.06); }
+#screen3 .s3-sum-pill.missing { color: rgba(248,113,113,0.9); background: rgba(248,113,113,0.08); box-shadow: 0 0 14px rgba(248,113,113,0.08); }
+#screen3 .s3-sum-pill.shaky { color: rgba(251,191,36,0.9); background: rgba(251,191,36,0.07); box-shadow: 0 0 14px rgba(251,191,36,0.08); }
+#screen3 .s3-sum-pill.solid { color: rgba(34,211,238,0.9); background: rgba(34,211,238,0.06); box-shadow: 0 0 14px rgba(34,211,238,0.08); }
 
 #screen3 .s3-results .s3-legend {
   display: flex; flex-wrap: wrap; justify-content: center; gap: clamp(12px, 1.8vw, 20px);
@@ -450,22 +525,36 @@ html, body {
 #screen3 .s3-results .s3-legend-dot.missing { background: rgba(248,113,113,0.9); }
 
 #screen3 .s3-result-cards {
-  display: flex; flex-direction: column; gap: clamp(4px, 0.6vw, 8px);
+  display: flex; flex-direction: column; gap: clamp(6px, 0.8vw, 10px);
   width: 100%;
   margin-bottom: clamp(4px, 0.6vw, 8px);
 }
 #screen3 .s3-result-card {
-  border-radius: 0;
-  padding: clamp(13px, 1.6vw, 18px) clamp(8px, 1vw, 12px);
-  background: transparent;
-  border: none;
+  border-radius: 10px;
+  padding: clamp(13px, 1.6vw, 18px) clamp(10px, 1.2vw, 14px);
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.04);
   opacity: 0;
   animation: up 0.35s ease forwards;
+  transition: background 0.3s ease, border-color 0.3s ease, box-shadow 0.3s ease;
 }
+#screen3 .s3-result-card:hover {
+  background: rgba(255,255,255,0.04);
+  border-color: rgba(255,255,255,0.08);
+}
+#screen3 .s3-result-card.solid:hover { box-shadow: 0 0 20px rgba(34,211,238,0.06); border-color: rgba(34,211,238,0.12); }
+#screen3 .s3-result-card.shaky:hover { box-shadow: 0 0 20px rgba(251,191,36,0.06); border-color: rgba(251,191,36,0.12); }
+#screen3 .s3-result-card.missing:hover { box-shadow: 0 0 20px rgba(248,113,113,0.06); border-color: rgba(248,113,113,0.12); }
 #screen3 .s3-result-card:last-child { border-bottom: none; }
 #screen3 .s3-result-card.solid,
 #screen3 .s3-result-card.shaky,
 #screen3 .s3-result-card.missing { border-left: none; }
+#screen3 .s3-result-glow {
+  width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0;
+}
+#screen3 .s3-result-card.solid .s3-result-glow { background: rgba(34,211,238,0.85); box-shadow: 0 0 10px rgba(34,211,238,0.55); }
+#screen3 .s3-result-card.shaky .s3-result-glow { background: rgba(251,191,36,0.9); box-shadow: 0 0 10px rgba(251,191,36,0.45); }
+#screen3 .s3-result-card.missing .s3-result-glow { background: rgba(248,113,113,0.9); box-shadow: 0 0 10px rgba(248,113,113,0.45); }
 #screen3 .s3-result-top {
   display: flex; align-items: center; gap: 14px;
   flex-wrap: nowrap;
@@ -683,9 +772,15 @@ html, body {
   transition: background 0.3s ease;
 }
 #screen3 .btn-primary {
-  background: rgba(255,255,255,0.08); color: #fff;
+  background: linear-gradient(135deg, rgba(34,211,238,0.12), rgba(167,139,250,0.1));
+  color: #fff;
+  border-color: rgba(34,211,238,0.25);
+  box-shadow: 0 4px 20px rgba(34,211,238,0.1);
 }
-#screen3 .btn-primary:hover { background: rgba(255,255,255,0.13); }
+#screen3 .btn-primary:hover {
+  background: linear-gradient(135deg, rgba(34,211,238,0.18), rgba(167,139,250,0.14));
+  box-shadow: 0 6px 24px rgba(34,211,238,0.15);
+}
 #screen3 .btn-ghost {
   background: transparent; color: rgba(255,255,255,0.45);
   border-color: rgba(255,255,255,0.08);
@@ -821,8 +916,30 @@ html, body {
     font-size: 11px;
   }
 
+  #screen3 .s3-glass {
+    padding: 18px 14px;
+    border-radius: 14px;
+  }
+
+  #screen3 .s3-stage-icon {
+    width: 44px;
+    height: 44px;
+  }
+
+  #screen3 .tile-opt {
+    padding: 12px 10px;
+    gap: 10px;
+  }
+  #screen3 .tile-badge {
+    width: 28px;
+    height: 28px;
+  }
+  #screen3 .tile-arrow {
+    display: none;
+  }
+
   #screen3 .s3-result-card {
-    padding: 11px 4px;
+    padding: 11px 10px;
   }
   #screen3 .s3-result-top {
     gap: 8px;
@@ -6394,13 +6511,19 @@ var S3_OPT_GLY=[
 ];
 
 function s3_renderCard(st,i,opts){
-  var o=opts.map(function(op){
+  var o=opts.map(function(op,k){
     return '<button class="tile-opt" data-state="'+op.state+'">'+
-      '<span class="tile-text">'+op.text+'</span></button>';
+      '<span class="tile-badge"><svg viewBox="0 0 24 24" fill="none" stroke="url(#s3pg)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="'+S3_OPT_GLY[k%3]+'"/></svg></span>'+
+      '<span class="tile-text">'+op.text+'</span>'+
+      '<span class="tile-arrow" aria-hidden="true">&#8594;</span></button>';
   }).join('');
-  return '<div class="tile-card-wrap">'+
+  return '<div class="s3-glass tile-card-wrap">'+
+    '<svg width="0" height="0"><defs><linearGradient id="s3pg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="rgba(167,139,250,0.75)"/><stop offset="1" stop-color="rgba(34,211,238,0.7)"/></linearGradient></defs></svg>'+
     '<div class="s3-question">'+
-      '<div class="s3-stage-label">'+st.name+'</div>'+
+      '<div class="s3-stage-hero">'+
+        '<div class="s3-stage-icon"><canvas width="40" height="40"></canvas></div>'+
+        '<div class="s3-stage-label">'+st.name+'</div>'+
+      '</div>'+
       '<div class="s3-stage-q">'+st.q+'</div>'+
     '</div>'+
     '<div class="tile-opts">'+o+'</div>'+
@@ -6415,6 +6538,8 @@ function s3_renderStage(i){
   card.innerHTML=s3_renderCard(st,i,s3_shuffle(st.options));
   body.appendChild(card);
   if(s3_headStop){s3_headStop();s3_headStop=null;}
+  var stageIcon=card.querySelector('.s3-stage-icon canvas');
+  if(stageIcon) s3_chainRafs.push(s3_runCanvas(stageIcon,i,'live'));
   requestAnimationFrame(function(){card.classList.add('in');});
   card.querySelectorAll('[data-state]').forEach(function(el){
     el.addEventListener('click',function(){
@@ -6446,7 +6571,7 @@ function s3_renderResults(){
   s3_answers.forEach(function(a){ if(a==='missing')missingN++; else if(a==='shaky')shakyN++; else if(a==='solid')solidN++; });
 
   var body=document.getElementById('s3-body');
-  var root=document.createElement('div'); root.className='s3-results';
+  var root=document.createElement('div'); root.className='s3-results s3-glass';
 
   var head=document.createElement('div'); head.className='s3-results-head';
   head.innerHTML=
@@ -6471,6 +6596,7 @@ function s3_renderResults(){
     var html=
       '<div class="s3-result-top">'+
         '<span class="s3-result-num">'+(i+1)+'</span>'+
+        '<span class="s3-result-glow"></span>'+
         '<span class="s3-result-name">'+st.name+'</span>'+
         '<span class="s3-result-tease">'+s3_teaseLine(state)+'</span>'+
       '</div>';
