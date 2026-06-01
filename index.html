@@ -358,10 +358,8 @@ html, body {
 #screen3 .cfix.show { opacity: 1; }
 
 #screen3 .s3-stage.s3-results-mode {
-  width: min(94vw, 680px);
+  width: min(63vw, 560px);
   align-items: stretch;
-  margin-top: 0;
-  margin-bottom: 0;
 }
 #screen3.s3-results-active .prog { display: none; }
 #screen3.s3-results-active .s3-header {
@@ -379,7 +377,7 @@ html, body {
 }
 #screen3 .s3-results-head {
   text-align: center;
-  margin-bottom: clamp(12px, 1.8vw, 18px);
+  margin-bottom: clamp(8px, 1.2vw, 12px);
 }
 #screen3 .s3-results-title {
   font-size: clamp(14px, 1.55vw, 18px);
@@ -398,7 +396,7 @@ html, body {
 }
 #screen3 .s3-results-summary {
   display: flex; flex-wrap: wrap; justify-content: center; gap: 8px;
-  margin: clamp(8px, 1.2vw, 12px) 0 clamp(12px, 1.6vw, 16px);
+  margin: clamp(6px, 1vw, 10px) 0 clamp(8px, 1.2vw, 12px);
 }
 #screen3 .s3-sum-pill {
   font-size: clamp(10px, 1.05vw, 12px);
@@ -414,7 +412,7 @@ html, body {
 
 #screen3 .s3-results .s3-legend {
   display: flex; flex-wrap: wrap; justify-content: center; gap: clamp(10px, 1.5vw, 16px);
-  margin-bottom: clamp(12px, 1.6vw, 18px);
+  margin-bottom: clamp(8px, 1.2vw, 12px);
   padding: 0;
   background: transparent;
   border: none;
@@ -422,13 +420,17 @@ html, body {
 #screen3 .s3-results .s3-legend-item {
   display: flex; align-items: center; gap: 7px;
   font-size: clamp(10px, 1.05vw, 12px);
-  letter-spacing: 0.02em;
+  letter-spacing: 0;
   color: rgba(255,255,255,0.55);
   text-transform: none;
 }
 #screen3 .s3-results .s3-legend-item strong {
   font-weight: 600;
   color: rgba(255,255,255,0.78);
+  letter-spacing: 0.02em;
+}
+#screen3 .s3-results .s3-legend-desc {
+  letter-spacing: 0.02em;
 }
 #screen3 .s3-results .s3-legend-dot {
   width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
@@ -444,7 +446,7 @@ html, body {
 }
 #screen3 .s3-result-card {
   border-radius: 0;
-  padding: clamp(10px, 1.2vw, 13px) clamp(4px, 0.5vw, 8px);
+  padding: clamp(8px, 1vw, 11px) clamp(4px, 0.5vw, 8px);
   background: transparent;
   border: none;
   border-bottom: 1px solid rgba(255,255,255,0.05);
@@ -656,6 +658,9 @@ html, body {
 }
 
 #s3-actions { margin-top: clamp(14px, 2vw, 20px); opacity: 0; transition: opacity 0.5s; text-align: center; }
+#screen3.s3-results-active #s3-actions {
+  margin-top: clamp(10px, 1.4vw, 16px);
+}
 #s3-actions.show { opacity: 1; }
 #screen3 .btn {
   padding: clamp(12px, 1.5vw, 16px) clamp(20px, 2.5vw, 32px);
@@ -6172,9 +6177,9 @@ function s3_collectGaps(){
 
 function s3_legendHtml(){
   return '<div class="s3-legend">'+
-    '<div class="s3-legend-item"><span class="s3-legend-dot solid"></span><strong>Solid</strong>, working well</div>'+
-    '<div class="s3-legend-item"><span class="s3-legend-dot shaky"></span><strong>Needs work</strong>, fragile</div>'+
-    '<div class="s3-legend-item"><span class="s3-legend-dot missing"></span><strong>Missing</strong>, real gap</div>'+
+    '<div class="s3-legend-item"><span class="s3-legend-dot solid"></span><strong>Solid</strong><span class="s3-legend-desc"> · working well</span></div>'+
+    '<div class="s3-legend-item"><span class="s3-legend-dot shaky"></span><strong>Needs work</strong><span class="s3-legend-desc"> · fragile</span></div>'+
+    '<div class="s3-legend-item"><span class="s3-legend-dot missing"></span><strong>Missing</strong><span class="s3-legend-desc"> · real gap</span></div>'+
   '</div>';
 }
 
