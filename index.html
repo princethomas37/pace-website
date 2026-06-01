@@ -126,6 +126,25 @@ html, body {
   flex-direction: column;
   align-items: center;
 }
+#screen3 .s3-header {
+  text-align: center;
+  margin-bottom: clamp(10px, 1.6vw, 18px);
+  width: 100%;
+}
+#screen3 .s3-context {
+  font-size: clamp(9px, 0.95vw, 11px);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: rgba(34,211,238,0.72);
+  margin-bottom: clamp(4px, 0.6vw, 8px);
+}
+#screen3 .s3-flow-title {
+  font-size: clamp(14px, 1.55vw, 18px);
+  font-weight: 600;
+  letter-spacing: 0.04em;
+  color: rgba(255,255,255,0.88);
+  line-height: 1.25;
+}
 @keyframes s3CardOut { to { opacity: 0; transform: translateY(-12px); } }
 @keyframes s3SlideIn { to { opacity: 1; transform: translateX(0); } }
 
@@ -426,6 +445,10 @@ html, body {
 <!-- SCREEN 3 — Gap reveal / stage-by-stage flow -->
 <div class="screen out-r" id="screen3">
   <div class="s3-stage">
+    <div class="s3-header">
+      <div class="s3-context" id="s3-context"></div>
+      <div class="s3-flow-title" id="s3-flow-title"></div>
+    </div>
     <div class="prog" id="s3-prog"></div>
     <div id="s3-body"></div>
     <div id="s3-diag"></div>
@@ -5639,7 +5662,7 @@ var S3_ICON = {
   invoice: 'M12 1v22M17 5H9.5a3.5 3.5 0 000 7h5a3.5 3.5 0 010 7H6',
   retain:  'M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78L12 21.23l8.84-8.84a5.5 5.5 0 000-7.78z'
 };
-var S3_FLOW = {
+var S3_FLOW_DEFAULT = {
   title: 'YOUR IT BUSINESS, STAGE BY STAGE',
   stages: [
     { name:'Get Leads', icon:S3_ICON.lead,
@@ -5698,6 +5721,28 @@ var S3_FLOW = {
       fix:'Retainer model + check-in automation' }
   ]
 };
+var S3_FLOW = S3_FLOW_DEFAULT;
+
+function s3CatLabel(key) {
+  for (var i = 0; i < s1Data.length; i++) {
+    if (s1Data[i].key === key) return s1Data[i].name;
+  }
+  return key;
+}
+
+function s3_updateHeader() {
+  var ctxEl = document.getElementById('s3-context');
+  var titleEl = document.getElementById('s3-flow-title');
+  if (ctxEl) {
+    ctxEl.textContent = (userSelection.category && userSelection.subtype)
+      ? s3CatLabel(userSelection.category) + ' · ' + userSelection.subtype
+      : '';
+  }
+  if (titleEl) titleEl.textContent = S3_FLOW.title || '';
+}
+</script>
+<script src="tools/s3-flow-data.js"></script>
+<script>
 
 function s3_amul(mode){
   return mode==='live'?1:
@@ -5782,8 +5827,7 @@ function s3_anim5(ctx,W,H,t,mode){
 }
 var S3_STAGE_ANIM=[s3_anim0,s3_anim1,s3_anim2,s3_anim3,s3_anim4,s3_anim5];
 
-var s3_idx=0, s3_answers=S3_FLOW.stages.map(function(){return null;});
-var s3_chainRafs=[], s3_headStop=null, userSelection={category:null,subtype:null};
+var s3_idx=0, s3_answers=[], s3_chainRafs=[], s3_headStop=null, userSelection={category:null,subtype:null};
 
 function s3_runCanvas(cnv,fnIdx,mode){
   var ctx=cnv.getContext('2d'),W=cnv.width,H=cnv.height,t=0,raf;
@@ -5921,6 +5965,8 @@ function stopScreen3(){
 
 function initScreen3(){
   stopScreen3();
+  S3_FLOW = resolveS3Flow(userSelection.category, userSelection.subtype);
+  s3_updateHeader();
   s3_idx=0;
   s3_answers=S3_FLOW.stages.map(function(){return null;});
   document.getElementById('s3-diag').innerHTML='';
