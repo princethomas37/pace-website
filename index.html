@@ -466,13 +466,15 @@ body::after {
   margin-bottom: clamp(16px, 2.2vw, 24px);
 }
 #screen3 .s3-results-title {
-  font-size: clamp(12px, 2vw, 24px);
-  font-weight: 800;
-  letter-spacing: 0.14em;
-  text-transform: uppercase;
-  color: #fff;
+  font-size: clamp(16px, 1.75vw, 21px);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  text-transform: none;
   margin-bottom: clamp(8px, 1vw, 12px);
-  text-shadow: 0 0 40px rgba(34,211,238,0.15);
+  background: linear-gradient(120deg, #fff 20%, rgba(34,211,238,0.9) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 #screen3 .s3-results-sub {
   font-size: clamp(7px, 0.9vw, 11px);
@@ -904,7 +906,7 @@ body::after {
     margin-bottom: 14px;
   }
   #screen3 .s3-results-title {
-    font-size: 14px;
+    font-size: 17px;
     margin-bottom: 8px;
   }
   #screen3 .s3-results-sub {
