@@ -346,9 +346,6 @@ body::after {
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 #screen3 .tile-badge svg { width: clamp(14px, 1.6vw, 17px); height: clamp(14px, 1.6vw, 17px); }
-#screen3 .tile-badge.solid { border-color: rgba(34,211,238,0.22); background: rgba(34,211,238,0.06); }
-#screen3 .tile-badge.shaky { border-color: rgba(251,191,36,0.22); background: rgba(251,191,36,0.06); }
-#screen3 .tile-badge.missing { border-color: rgba(248,113,113,0.22); background: rgba(248,113,113,0.06); }
 #screen3 .tile-opt:hover .tile-badge {
   transform: scale(1.05);
   box-shadow: 0 0 12px rgba(167,139,250,0.2);
@@ -6580,40 +6577,16 @@ function s3_buildChainRow(className, nodeClassFn, animModeFn, onNodeReady){
   return row;
 }
 
-var S3_WARN='M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0zM12 9v4M12 17h.01';
-function s3_optIcon(state){
-  if(state==='solid') return 'M5 13l4 4L19 7';
-  if(state==='shaky') return 'M12 8v4M12 16h.01M12 2a10 10 0 100 20 10 10 0 000-20z';
-  return S3_WARN;
-}
-
-function s3_renderGapPanel(root, data){
-  if(!data.gaps.length) return;
-  var panel=document.createElement('div'); panel.className='s3-gap-panel';
-  panel.innerHTML='<div class="s3-gap-head">Where to focus first</div>';
-  data.gaps.forEach(function(gap,idx){
-    var item=document.createElement('div');
-    item.className='s3-gap-item '+gap.state;
-    item.style.animationDelay=(0.1+idx*0.08)+'s';
-    item.innerHTML=
-      '<div class="s3-gap-top">'+
-        '<span class="s3-gap-stage">'+gap.stage.name+'</span>'+
-        '<span class="s3-gap-badge '+gap.state+'">'+s3_gapLabel(gap.state)+'</span>'+
-      '</div>'+
-      '<div class="s3-gap-insight">'+gap.insight+'</div>'+
-      '<div class="s3-gap-fix">'+
-        '<span class="s3-gap-fix-label">Fix</span>'+
-        '<span class="s3-gap-fix-text">'+gap.fix+'</span>'+
-      '</div>';
-    panel.appendChild(item);
-  });
-  root.appendChild(panel);
-}
+var S3_OPT_GLY=[
+  'M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5',
+  'M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z',
+  'M3 3v18h18M7 16l4-4 4 4 5-6'
+];
 
 function s3_renderCard(st,i,opts){
-  var o=opts.map(function(op){
+  var o=opts.map(function(op,k){
     return '<button class="tile-opt" data-state="'+op.state+'">'+
-      '<span class="tile-badge '+op.state+'"><svg viewBox="0 0 24 24" fill="none" stroke="url(#s3pg)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="'+s3_optIcon(op.state)+'"/></svg></span>'+
+      '<span class="tile-badge"><svg viewBox="0 0 24 24" fill="none" stroke="url(#s3pg)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="'+S3_OPT_GLY[k%3]+'"/></svg></span>'+
       '<span class="tile-text">'+op.text+'</span>'+
       '<span class="tile-arrow" aria-hidden="true">&#8594;</span></button>';
   }).join('');
@@ -6714,8 +6687,6 @@ function s3_renderResults(){
     if(iconCnv) s3_chainRafs.push(s3_runCanvas(iconCnv,i,state));
   });
   root.appendChild(cards);
-
-  s3_renderGapPanel(root, data);
 
   var ctaBox=document.createElement('div'); ctaBox.className='s3-results-cta-box';
   ctaBox.innerHTML=data.gaps.length
