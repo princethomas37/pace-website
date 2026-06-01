@@ -5,6 +5,8 @@ import json
 import re
 from pathlib import Path
 
+from s3_curated_data import OVERRIDES, SUBTYPE_CTX
+
 ROOT = Path(__file__).resolve().parents[1]
 
 S2 = {
@@ -29,34 +31,6 @@ CAT_LABEL = {
     "retail": "retail operation",
     "education": "education provider",
     "entertainment": "entertainment business",
-}
-
-# Hand-curated subtype context (client/unit/work verbs)
-SUBTYPE_CTX = {
-    ("service","IT & TECH"): {"client":"prospect","unit":"a software build or IT support scope","work":"project","deliver":"ship the build"},
-    ("service","CONSULTING"): {"client":"prospect","unit":"an advisory engagement","work":"engagement","deliver":"deliver recommendations"},
-    ("service","LEGAL"): {"client":"potential client","unit":"a legal matter","work":"case","deliver":"close the matter"},
-    ("service","HEALTHCARE"): {"client":"patient","unit":"a care appointment or treatment plan","work":"care plan","deliver":"deliver care"},
-    ("service","MARKETING"): {"client":"brand client","unit":"a campaign scope","work":"campaign","deliver":"launch the campaign"},
-    ("service","ACCOUNTING"): {"client":"client","unit":"a tax or bookkeeping scope","work":"engagement","deliver":"close the books"},
-    ("logistics","COLD CHAIN"): {"client":"shipper","unit":"a temperature-sensitive shipment","work":"load","deliver":"deliver in-spec"},
-    ("logistics","LAST MILE"): {"client":"customer","unit":"a same-day delivery","work":"route","deliver":"complete delivery"},
-    ("logistics","WAREHOUSING"): {"client":"client","unit":"an inbound inventory batch","work":"fulfillment wave","deliver":"ship orders"},
-    ("logistics","CUSTOMS"): {"client":"importer","unit":"a customs clearance file","work":"clearance","deliver":"release shipment"},
-    ("manufacturing","FOOD & BEV"): {"client":"buyer","unit":"a production batch","work":"batch","deliver":"release batch"},
-    ("manufacturing","ELECTRONICS"): {"client":"buyer","unit":"a production run","work":"run","deliver":"ship units"},
-    ("agriculture","CROP FARMING"): {"client":"buyer","unit":"a harvest lot","work":"season","deliver":"move the crop"},
-    ("agriculture","DAIRY"): {"client":"buyer","unit":"a daily milk collection","work":"collection","deliver":"deliver milk"},
-    ("construction","RESIDENTIAL"): {"client":"homeowner","unit":"a home build or remodel","work":"job","deliver":"hand over keys"},
-    ("construction","COMMERCIAL"): {"client":"developer","unit":"a commercial build","work":"project","deliver":"substantial completion"},
-    ("retail","E-COMMERCE"): {"client":"shopper","unit":"an online order","work":"order","deliver":"fulfill the order"},
-    ("retail","GROCERY"): {"client":"shopper","unit":"a basket of goods","work":"transaction","deliver":"complete checkout"},
-    ("finance","FINTECH"): {"client":"user","unit":"an onboarding flow","work":"account","deliver":"activate the account"},
-    ("finance","LENDING"): {"client":"borrower","unit":"a loan application","work":"loan","deliver":"fund the loan"},
-    ("education","ED-TECH"): {"client":"learner","unit":"a course enrollment","work":"cohort","deliver":"complete the module"},
-    ("education","K-12"): {"client":"student","unit":"a term enrollment","work":"term","deliver":"report progress"},
-    ("entertainment","GAMING"): {"client":"player","unit":"a game release cycle","work":"release","deliver":"ship the build"},
-    ("entertainment","FILM & VIDEO"): {"client":"client","unit":"a production schedule","work":"production","deliver":"deliver the cut"},
 }
 
 def slug(name: str) -> str:
@@ -390,29 +364,6 @@ FLOWS = {
      "fix":"Community + content cadence"},
   ]
 },
-}
-
-# Subtype-specific stage overrides (key stage customizations)
-OVERRIDES = {
-  ("service","IT & TECH"): {0: {"q":"A SaaS lead hits your site today. How did they find you and get logged?"}},
-  ("service","LEGAL"): {1: {"q":"A potential client describes a case. How do you scope before quoting fees?"}},
-  ("logistics","COLD CHAIN"): {2: {"q":"A temperature-sensitive {unit} is moving. Can you see breach risk in real time?",
-    "opts":["Live temp sensors with alert thresholds at every handoff.","Driver checks temps at stops and texts updates.","We find out about a breach from the receiver."],
-    "states":["solid","shaky","missing"],
-    "diag":{"shaky":"Manual temp checks miss handoff gaps where product spoils.","missing":"No continuous monitoring makes claims and losses inevitable."},
-    "fix":"Continuous temp monitoring"}},
-  ("logistics","CUSTOMS"): {0: {"q":"An importer sends documents for {unit}. How is clearance intake handled?"}},
-  ("manufacturing","FOOD & BEV"): {2: {"q":"On the line for {unit}, how is food safety monitored?",
-    "opts":["HACCP logs and batch traceability in real time.","Checks done but records are partly paper.","Issues surface at customer complaint or audit."],
-    "states":["solid","shaky","missing"],
-    "diag":{"shaky":"Partial digital records slow recalls and increase scrap.","missing":"Weak food safety tracking is a recall waiting to happen."},
-    "fix":"HACCP + traceability system"}},
-  ("agriculture","CROP FARMING"): {2: {"q":"Mid-season on {unit}, how do you monitor crop health and inputs?"}},
-  ("construction","FUEL/ENERGY"): {1: {"q":"A fuel/energy site job comes in. How do you estimate compliance and scope?"}},
-  ("retail","E-COMMERCE"): {3: {"q":"An online order for {unit} comes in. How fast is it fulfilled and tracked?"}},
-  ("finance","FINTECH"): {2: {"q":"A user completes KYC for {unit}. How fast is the account activated?"}},
-  ("education","ED-TECH"): {2: {"q":"Learners are mid-module on {unit}. Can you see who is falling behind?"}},
-  ("entertainment","GAMING"): {3: {"q":"Your {unit} build is ready. How is release coordinated across platforms?"}},
 }
 
 def fill(template: str, ctx: dict) -> str:
