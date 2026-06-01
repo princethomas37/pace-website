@@ -167,6 +167,14 @@ body::after {
 }
 @keyframes s3CardOut { to { opacity: 0; transform: translateY(-12px); } }
 @keyframes s3SlideIn { to { opacity: 1; transform: translateX(0); } }
+@keyframes s3Pulse {
+  0%, 100% { box-shadow: 0 0 20px rgba(167,139,250,0.35), 0 0 36px rgba(34,211,238,0.12); }
+  50% { box-shadow: 0 0 28px rgba(167,139,250,0.5), 0 0 52px rgba(34,211,238,0.22); }
+}
+@keyframes s3HeroFloat {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-4px); }
+}
 
 #screen3 .prog {
   display: flex; align-items: center; justify-content: center;
@@ -186,6 +194,7 @@ body::after {
 #screen3 .pdot.current {
   border-color: rgba(255,255,255,0.55); transform: scale(1.08);
   box-shadow: 0 0 20px rgba(167,139,250,0.35), 0 0 36px rgba(34,211,238,0.12);
+  animation: s3Pulse 2.4s ease-in-out infinite;
 }
 #screen3 .pdot.answer-solid {
   border-color: rgba(34,211,238,0.45); background: rgba(34,211,238,0.06);
@@ -263,18 +272,31 @@ body::after {
 }
 #screen3 .s3-stage-hero {
   display: flex; flex-direction: column; align-items: center; gap: clamp(10px, 1.2vw, 14px);
+  position: relative; z-index: 1;
 }
 #screen3 .s3-stage-icon {
-  width: clamp(44px, 5vw, 52px); height: clamp(44px, 5vw, 52px);
+  width: clamp(52px, 6vw, 64px); height: clamp(52px, 6vw, 64px);
   border-radius: 50%;
   display: flex; align-items: center; justify-content: center;
   background: radial-gradient(circle at 35% 30%, rgba(34,211,238,0.12), rgba(167,139,250,0.06) 55%, rgba(255,255,255,0.02));
   border: 1px solid rgba(255,255,255,0.1);
   box-shadow: 0 0 24px rgba(34,211,238,0.12), inset 0 1px 0 rgba(255,255,255,0.08);
+  animation: s3HeroFloat 3.2s ease-in-out infinite;
 }
 #screen3 .s3-stage-icon canvas {
-  width: clamp(24px, 2.8vw, 28px); height: clamp(24px, 2.8vw, 28px);
+  width: clamp(28px, 3.2vw, 34px); height: clamp(28px, 3.2vw, 34px);
 }
+#screen3 .s3-stage-bg {
+  position: absolute; inset: 0; overflow: hidden; border-radius: inherit; pointer-events: none; z-index: 0;
+}
+#screen3 .s3-stage-bg canvas {
+  position: absolute; top: 50%; left: 50%;
+  width: clamp(160px, 20vw, 240px); height: clamp(160px, 20vw, 240px);
+  transform: translate(-50%, -50%);
+  opacity: 0.14;
+  filter: blur(0.5px);
+}
+#screen3 .tile-card-wrap > :not(.s3-stage-bg) { position: relative; z-index: 1; }
 #screen3 .s3-stage-label {
   font-size: clamp(7px, 0.78vw, 12px);
   font-weight: 800; letter-spacing: 0.16em;
@@ -324,6 +346,9 @@ body::after {
   transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 #screen3 .tile-badge svg { width: clamp(14px, 1.6vw, 17px); height: clamp(14px, 1.6vw, 17px); }
+#screen3 .tile-badge.solid { border-color: rgba(34,211,238,0.22); background: rgba(34,211,238,0.06); }
+#screen3 .tile-badge.shaky { border-color: rgba(251,191,36,0.22); background: rgba(251,191,36,0.06); }
+#screen3 .tile-badge.missing { border-color: rgba(248,113,113,0.22); background: rgba(248,113,113,0.06); }
 #screen3 .tile-opt:hover .tile-badge {
   transform: scale(1.05);
   box-shadow: 0 0 12px rgba(167,139,250,0.2);
@@ -490,6 +515,16 @@ body::after {
   display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;
   margin: clamp(12px, 1.6vw, 18px) 0 clamp(16px, 2.2vw, 24px);
 }
+#screen3 .s3-results-chain-wrap {
+  width: 100%;
+  margin-bottom: clamp(18px, 2.4vw, 28px);
+  padding: clamp(14px, 1.8vw, 20px) clamp(6px, 1vw, 10px);
+  border-radius: 14px;
+  background: linear-gradient(135deg, rgba(255,255,255,0.04) 0%, rgba(255,255,255,0.01) 100%);
+  border: 1px solid rgba(255,255,255,0.06);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.05);
+}
+#screen3 .chain.results-chain { --cnode-size: clamp(32px, 3.8vw, 40px); }
 #screen3 .s3-sum-pill {
   font-size: clamp(11px, 1.15vw, 13px);
   font-weight: 500;
@@ -565,6 +600,18 @@ body::after {
 #screen3 .s3-result-glow {
   width: 7px; height: 7px; border-radius: 50%; flex-shrink: 0;
 }
+#screen3 .s3-result-icon {
+  width: clamp(30px, 3.4vw, 36px); height: clamp(30px, 3.4vw, 36px);
+  border-radius: 50%; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  border: 1px solid rgba(255,255,255,0.1);
+  background: rgba(255,255,255,0.03);
+  box-shadow: inset 0 1px 0 rgba(255,255,255,0.06);
+}
+#screen3 .s3-result-icon canvas { width: clamp(16px, 1.8vw, 20px); height: clamp(16px, 1.8vw, 20px); }
+#screen3 .s3-result-card.solid .s3-result-icon { border-color: rgba(34,211,238,0.22); box-shadow: 0 0 12px rgba(34,211,238,0.12); }
+#screen3 .s3-result-card.shaky .s3-result-icon { border-color: rgba(251,191,36,0.22); box-shadow: 0 0 12px rgba(251,191,36,0.12); }
+#screen3 .s3-result-card.missing .s3-result-icon { border-color: rgba(248,113,113,0.22); box-shadow: 0 0 12px rgba(248,113,113,0.12); }
 #screen3 .s3-result-card.solid .s3-result-glow { background: rgba(34,211,238,0.85); box-shadow: 0 0 10px rgba(34,211,238,0.55); }
 #screen3 .s3-result-card.shaky .s3-result-glow { background: rgba(251,191,36,0.9); box-shadow: 0 0 10px rgba(251,191,36,0.45); }
 #screen3 .s3-result-card.missing .s3-result-glow { background: rgba(248,113,113,0.9); box-shadow: 0 0 10px rgba(248,113,113,0.45); }
@@ -939,8 +986,21 @@ body::after {
   }
 
   #screen3 .s3-stage-icon {
-    width: 44px;
-    height: 44px;
+    width: 52px;
+    height: 52px;
+  }
+  #screen3 .s3-stage-bg canvas {
+    width: 180px;
+    height: 180px;
+  }
+  #screen3 .s3-results-chain-wrap {
+    padding: 12px 4px;
+    margin-bottom: 16px;
+  }
+  #screen3 .chain.results-chain { --cnode-size: 30px; }
+  #screen3 .s3-result-icon {
+    width: 30px;
+    height: 30px;
   }
 
   #screen3 .tile-opt {
@@ -6507,7 +6567,7 @@ function s3_buildChainRow(className, nodeClassFn, animModeFn, onNodeReady){
   S3_FLOW.stages.forEach(function(s,i){
     var stEl=document.createElement('div');
     var nc=nodeClassFn?nodeClassFn(i,s):'';
-    stEl.className='cstage'+(nc?' gap-col '+nc:'');
+    stEl.className='cstage done'+(nc?' gap-col '+nc:'');
     stEl.innerHTML='<div class="cnode'+(nc?' gap-'+nc:'')+'" id="s3-'+className+'-'+i+'"><canvas width="34" height="34"></canvas></div><div class="cname">'+s.name+'</div>';
     row.appendChild(stEl);
   });
@@ -6521,20 +6581,44 @@ function s3_buildChainRow(className, nodeClassFn, animModeFn, onNodeReady){
 }
 
 var S3_WARN='M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0zM12 9v4M12 17h.01';
-var S3_OPT_GLY=[
-  'M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5',
-  'M21 16V8a2 2 0 00-1-1.73l-7-4a2 2 0 00-2 0l-7 4A2 2 0 003 8v8a2 2 0 001 1.73l7 4a2 2 0 002 0l7-4A2 2 0 0021 16z',
-  'M3 3v18h18M7 16l4-4 4 4 5-6'
-];
+function s3_optIcon(state){
+  if(state==='solid') return 'M5 13l4 4L19 7';
+  if(state==='shaky') return 'M12 8v4M12 16h.01M12 2a10 10 0 100 20 10 10 0 000-20z';
+  return S3_WARN;
+}
+
+function s3_renderGapPanel(root, data){
+  if(!data.gaps.length) return;
+  var panel=document.createElement('div'); panel.className='s3-gap-panel';
+  panel.innerHTML='<div class="s3-gap-head">Where to focus first</div>';
+  data.gaps.forEach(function(gap,idx){
+    var item=document.createElement('div');
+    item.className='s3-gap-item '+gap.state;
+    item.style.animationDelay=(0.1+idx*0.08)+'s';
+    item.innerHTML=
+      '<div class="s3-gap-top">'+
+        '<span class="s3-gap-stage">'+gap.stage.name+'</span>'+
+        '<span class="s3-gap-badge '+gap.state+'">'+s3_gapLabel(gap.state)+'</span>'+
+      '</div>'+
+      '<div class="s3-gap-insight">'+gap.insight+'</div>'+
+      '<div class="s3-gap-fix">'+
+        '<span class="s3-gap-fix-label">Fix</span>'+
+        '<span class="s3-gap-fix-text">'+gap.fix+'</span>'+
+      '</div>';
+    panel.appendChild(item);
+  });
+  root.appendChild(panel);
+}
 
 function s3_renderCard(st,i,opts){
-  var o=opts.map(function(op,k){
+  var o=opts.map(function(op){
     return '<button class="tile-opt" data-state="'+op.state+'">'+
-      '<span class="tile-badge"><svg viewBox="0 0 24 24" fill="none" stroke="url(#s3pg)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="'+S3_OPT_GLY[k%3]+'"/></svg></span>'+
+      '<span class="tile-badge '+op.state+'"><svg viewBox="0 0 24 24" fill="none" stroke="url(#s3pg)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="'+s3_optIcon(op.state)+'"/></svg></span>'+
       '<span class="tile-text">'+op.text+'</span>'+
       '<span class="tile-arrow" aria-hidden="true">&#8594;</span></button>';
   }).join('');
   return '<div class="s3-glass tile-card-wrap">'+
+    '<div class="s3-stage-bg"><canvas width="120" height="120"></canvas></div>'+
     '<svg width="0" height="0"><defs><linearGradient id="s3pg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="rgba(167,139,250,0.75)"/><stop offset="1" stop-color="rgba(34,211,238,0.7)"/></linearGradient></defs></svg>'+
     '<div class="s3-question">'+
       '<div class="s3-stage-hero">'+
@@ -6557,6 +6641,8 @@ function s3_renderStage(i){
   if(s3_headStop){s3_headStop();s3_headStop=null;}
   var stageIcon=card.querySelector('.s3-stage-icon canvas');
   if(stageIcon) s3_chainRafs.push(s3_runCanvas(stageIcon,i,'live'));
+  var stageBg=card.querySelector('.s3-stage-bg canvas');
+  if(stageBg) s3_chainRafs.push(s3_runCanvas(stageBg,i,'live'));
   requestAnimationFrame(function(){card.classList.add('in');});
   card.querySelectorAll('[data-state]').forEach(function(el){
     el.addEventListener('click',function(){
@@ -6572,7 +6658,6 @@ function s3_renderStage(i){
 
 function s3_renderResults(){
   s3_chainRafs.forEach(function(s){s();});s3_chainRafs=[];
-  s3_paintProg();
   document.getElementById('s3-body').innerHTML='';
   document.getElementById('s3-diag').innerHTML='';
   document.getElementById('s3-actions').classList.remove('show');
@@ -6602,6 +6687,13 @@ function s3_renderResults(){
   if(solidN) pills.innerHTML+='<span class="s3-sum-pill solid">'+solidN+' solid</span>';
   root.appendChild(pills);
 
+  var chainWrap=document.createElement('div'); chainWrap.className='s3-results-chain-wrap';
+  chainWrap.appendChild(s3_buildChainRow('results-chain',
+    function(i){ return s3_answers[i]||'missing'; },
+    function(i){ return s3_answers[i]||'next'; }
+  ));
+  root.appendChild(chainWrap);
+
   root.insertAdjacentHTML('beforeend', s3_legendHtml());
 
   var cards=document.createElement('div'); cards.className='s3-result-cards';
@@ -6612,14 +6704,19 @@ function s3_renderResults(){
     card.style.animationDelay=(0.08+i*0.07)+'s';
     var html=
       '<div class="s3-result-top">'+
+        '<span class="s3-result-icon"><canvas width="28" height="28"></canvas></span>'+
         '<span class="s3-result-glow"></span>'+
         '<span class="s3-result-name">'+st.name+'</span>'+
         '<span class="s3-result-tease">'+s3_teaseLine(state)+'</span>'+
       '</div>';
     card.innerHTML=html;
     cards.appendChild(card);
+    var iconCnv=card.querySelector('.s3-result-icon canvas');
+    if(iconCnv) s3_chainRafs.push(s3_runCanvas(iconCnv,i,state));
   });
   root.appendChild(cards);
+
+  s3_renderGapPanel(root, data);
 
   var ctaBox=document.createElement('div'); ctaBox.className='s3-results-cta-box';
   ctaBox.innerHTML=data.gaps.length
