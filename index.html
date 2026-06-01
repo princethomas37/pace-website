@@ -116,8 +116,8 @@ html, body {
 
 /* ─── SCREEN 3 — GAP REVEAL FLOW ─── */
 #screen3 {
-  justify-content: center;
-  padding: clamp(16px, 2.5vw, 36px) clamp(10px, 2vw, 20px);
+  justify-content: flex-start;
+  padding: clamp(52px, 7vh, 72px) clamp(10px, 2vw, 20px) clamp(20px, 3vh, 36px);
   overflow-y: auto;
 }
 #screen3 .s3-stage {
@@ -128,7 +128,7 @@ html, body {
 }
 #screen3 .s3-header {
   text-align: center;
-  margin-bottom: clamp(10px, 1.6vw, 18px);
+  margin-bottom: clamp(8px, 1.2vw, 14px);
   width: 100%;
 }
 #screen3 .s3-context {
@@ -136,7 +136,7 @@ html, body {
   letter-spacing: 0.14em;
   text-transform: uppercase;
   color: rgba(34,211,238,0.72);
-  margin-bottom: clamp(4px, 0.6vw, 8px);
+  margin-bottom: clamp(10px, 1.4vw, 16px);
 }
 #screen3 .s3-flow-title {
   font-size: clamp(14px, 1.55vw, 18px);
@@ -145,12 +145,15 @@ html, body {
   color: rgba(255,255,255,0.88);
   line-height: 1.25;
 }
+#screen3:not(.s3-results-active) .s3-flow-title {
+  display: none;
+}
 @keyframes s3CardOut { to { opacity: 0; transform: translateY(-12px); } }
 @keyframes s3SlideIn { to { opacity: 1; transform: translateX(0); } }
 
 #screen3 .prog {
   display: flex; align-items: center; justify-content: center;
-  margin-bottom: clamp(18px, 3vw, 36px); width: 100%;
+  margin-bottom: clamp(14px, 2.2vw, 28px); width: 100%;
 }
 #screen3 .pdot {
   width: clamp(30px, 3.6vw, 38px); height: clamp(30px, 3.6vw, 38px);
@@ -224,64 +227,63 @@ html, body {
 #screen3 .card.in { animation: up 0.5s ease forwards; }
 #screen3 .card.out { animation: s3CardOut 0.35s ease forwards; }
 #screen3 .backstage {
-  margin-top: clamp(16px, 2vw, 24px);
+  margin-top: clamp(14px, 1.8vw, 20px);
   font-size: clamp(6px, 0.84vw, 10px);
   letter-spacing: 0.32em; text-transform: lowercase;
   color: rgba(255,255,255,0.38); cursor: pointer; transition: color 0.2s;
+  text-align: center; width: 100%;
 }
 #screen3 .backstage:hover { color: rgba(255,255,255,0.65); }
 #screen3 .backstage.hidden { visibility: hidden; }
 
 #screen3 .s3-question {
   text-align: center;
-  margin-bottom: clamp(18px, 3vw, 32px);
+  margin-bottom: clamp(14px, 2vw, 22px);
   width: 100%;
 }
 #screen3 .s3-stage-label {
-  font-size: clamp(7px, 0.8vw, 11px);
-  font-weight: 800; letter-spacing: 0.22em;
-  text-transform: uppercase; color: rgba(255,255,255,0.45);
+  font-size: clamp(9px, 0.95vw, 11px);
+  font-weight: 700; letter-spacing: 0.18em;
+  text-transform: uppercase; color: rgba(34,211,238,0.62);
 }
 #screen3 .s3-stage-q {
-  font-size: clamp(11px, 1.6vw, 16px);
-  font-weight: 700; letter-spacing: 0.06em;
-  color: #fff; line-height: 1.45;
-  margin-top: clamp(8px, 1vw, 12px);
-  max-width: 100%;
+  font-size: clamp(13px, 1.45vw, 17px);
+  font-weight: 600; letter-spacing: 0.01em;
+  color: rgba(255,255,255,0.92); line-height: 1.5;
+  margin-top: clamp(10px, 1.2vw, 14px);
+  max-width: 26em;
+  margin-left: auto; margin-right: auto;
 }
 
 #screen3 .tile-opts {
-  display: flex; flex-direction: column; gap: clamp(6px, 0.8vw, 10px); width: 100%;
+  display: flex; flex-direction: column; gap: clamp(5px, 0.7vw, 8px); width: 100%;
 }
 #screen3 .tile-opt {
-  display: flex; align-items: center; gap: clamp(10px, 1.2vw, 14px);
-  width: 100%; padding: clamp(10px, 1.3vw, 15px) clamp(12px, 1.5vw, 18px);
-  cursor: pointer; border-radius: 8px; border: 1px solid transparent;
-  background: transparent; text-align: left;
+  display: flex; align-items: center;
+  width: 100%; padding: clamp(11px, 1.35vw, 14px) clamp(14px, 1.6vw, 18px);
+  cursor: pointer; border-radius: 8px;
+  border: 1px solid rgba(255,255,255,0.06);
+  background: rgba(255,255,255,0.03);
+  text-align: left;
   transition: background 0.3s ease, border-color 0.3s ease, transform 0.25s ease;
 }
 #screen3 .tile-opt:hover {
-  background: rgba(255,255,255,0.05);
+  background: rgba(255,255,255,0.06);
   transform: translateY(-1px);
-  border-color: rgba(255,255,255,0.1);
+  border-color: rgba(255,255,255,0.12);
 }
-#screen3 .tile-badge {
-  width: clamp(28px, 3.2vw, 34px); height: clamp(28px, 3.2vw, 34px);
-  border-radius: 6px; flex-shrink: 0;
-  display: flex; align-items: center; justify-content: center;
-  background: rgba(255,255,255,0.04); border: 1px solid rgba(255,255,255,0.1);
-  transition: transform 0.25s ease;
-}
-#screen3 .tile-badge svg { width: clamp(14px, 1.6vw, 17px); height: clamp(14px, 1.6vw, 17px); }
-#screen3 .tile-opt:hover .tile-badge { transform: scale(1.06); }
 #screen3 .tile-text {
   flex: 1;
-  font-size: clamp(8px, 0.95vw, 12px);
-  font-weight: 400; letter-spacing: 0.04em;
-  color: rgba(255,255,255,0.72); line-height: 1.5;
+  font-size: clamp(11px, 1.15vw, 13px);
+  font-weight: 400; letter-spacing: 0.02em;
+  color: rgba(255,255,255,0.78); line-height: 1.5;
 }
 #screen3 .tile-card-wrap {
-  display: flex; flex-direction: column; align-items: center; width: 100%;
+  display: flex; flex-direction: column; align-items: stretch; width: 100%;
+  background: rgba(255,255,255,0.02);
+  border: 1px solid rgba(255,255,255,0.06);
+  border-radius: 10px;
+  padding: clamp(16px, 2vw, 24px) clamp(14px, 1.8vw, 20px);
 }
 
 #s3-diag { width: 100%; margin: clamp(6px, 1vw, 12px) 0 clamp(16px, 2vw, 24px); }
@@ -356,11 +358,6 @@ html, body {
 #screen3 .s3-stage.s3-results-mode {
   width: min(94vw, 680px);
   align-items: stretch;
-}
-#screen3.s3-results-active {
-  justify-content: flex-start;
-  padding-top: clamp(52px, 7vh, 72px);
-  padding-bottom: clamp(20px, 3vh, 36px);
 }
 #screen3.s3-results-active .prog { display: none; }
 #screen3.s3-results-active .s3-header {
@@ -6246,13 +6243,11 @@ var S3_OPT_GLY=[
 ];
 
 function s3_renderCard(st,i,opts){
-  var o=opts.map(function(op,k){
+  var o=opts.map(function(op){
     return '<button class="tile-opt" data-state="'+op.state+'">'+
-      '<span class="tile-badge"><svg viewBox="0 0 24 24" fill="none" stroke="url(#s3pg)" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="'+S3_OPT_GLY[k]+'"/></svg></span>'+
       '<span class="tile-text">'+op.text+'</span></button>';
   }).join('');
   return '<div class="tile-card-wrap">'+
-    '<svg width="0" height="0"><defs><linearGradient id="s3pg" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="rgba(167,139,250,0.75)"/><stop offset="1" stop-color="rgba(34,211,238,0.7)"/></linearGradient></defs></svg>'+
     '<div class="s3-question">'+
       '<div class="s3-stage-label">'+st.name+'</div>'+
       '<div class="s3-stage-q">'+st.q+'</div>'+
