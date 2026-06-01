@@ -357,9 +357,17 @@ html, body {
   width: min(94vw, 680px);
   align-items: stretch;
 }
+#screen3.s3-results-active {
+  justify-content: flex-start;
+  padding-top: clamp(52px, 7vh, 72px);
+  padding-bottom: clamp(20px, 3vh, 36px);
+}
 #screen3.s3-results-active .prog { display: none; }
+#screen3.s3-results-active .s3-header {
+  margin-bottom: clamp(6px, 1vw, 12px);
+}
 #screen3.s3-results-active .s3-flow-title {
-  font-size: clamp(16px, 2vw, 22px);
+  display: none;
 }
 
 #screen3 .s3-results {
@@ -6291,7 +6299,7 @@ function s3_renderResults(){
   var head=document.createElement('div'); head.className='s3-results-head';
   head.innerHTML=
     '<div class="s3-results-title">Your flow at a glance</div>'+
-    '<p class="s3-results-sub">We mapped where you stand at each stage. The specifics — and how to close the gaps — come next.</p>';
+    '<p class="s3-results-sub">We mapped where you stand at each stage.</p>';
   root.appendChild(head);
 
   var pills=document.createElement('div'); pills.className='s3-results-summary';
@@ -6322,7 +6330,7 @@ function s3_renderResults(){
 
   var ctaBox=document.createElement('div'); ctaBox.className='s3-results-cta-box';
   ctaBox.innerHTML=data.gaps.length
-    ? '<p>We know which stages need work and what to do at each one — that\u2019s the conversation.</p>'
+    ? '<p>We know which stages need work and what to do at each one.</p>'
     : '<p>Your flow looks tight on the surface. A quick walkthrough can still surface what\u2019s hiding between stages.</p>';
   root.appendChild(ctaBox);
   body.appendChild(root);
