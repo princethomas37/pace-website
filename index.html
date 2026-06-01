@@ -352,6 +352,157 @@ html, body {
   transition: opacity 0.4s; min-height: 8px; font-weight: 400; letter-spacing: 0.06em;
 }
 #screen3 .cfix.show { opacity: 1; }
+
+#screen3 .s3-compare-wrap {
+  width: 100%; margin-bottom: clamp(14px, 2vw, 22px);
+}
+#screen3 .s3-compare-intro {
+  font-size: clamp(8px, 0.9vw, 11px);
+  color: rgba(255,255,255,0.55);
+  line-height: 1.55;
+  text-align: center;
+  letter-spacing: 0.03em;
+  margin-bottom: clamp(12px, 1.6vw, 18px);
+  max-width: 42em;
+  margin-left: auto; margin-right: auto;
+}
+#screen3 .s3-legend {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: clamp(8px, 1.2vw, 14px);
+  margin-bottom: clamp(14px, 2vw, 20px);
+}
+#screen3 .s3-legend-item {
+  display: flex; align-items: center; gap: 6px;
+  font-size: clamp(6px, 0.72vw, 9px);
+  letter-spacing: 0.08em; text-transform: uppercase;
+  color: rgba(255,255,255,0.45);
+}
+#screen3 .s3-legend-dot {
+  width: 8px; height: 8px; border-radius: 50%; flex-shrink: 0;
+}
+#screen3 .s3-legend-dot.solid { background: rgba(34,211,238,0.9); box-shadow: 0 0 6px rgba(34,211,238,0.5); }
+#screen3 .s3-legend-dot.shaky { background: rgba(251,191,36,0.95); box-shadow: 0 0 6px rgba(251,191,36,0.45); }
+#screen3 .s3-legend-dot.missing { background: rgba(248,113,113,0.95); box-shadow: 0 0 6px rgba(248,113,113,0.45); }
+
+#screen3 .s3-compare-row { width: 100%; margin-bottom: clamp(6px, 1vw, 10px); }
+#screen3 .s3-row-tag {
+  font-size: clamp(6px, 0.7vw, 8px);
+  font-weight: 800; letter-spacing: 0.18em; text-transform: uppercase;
+  color: rgba(255,255,255,0.38);
+  text-align: center; margin-bottom: clamp(6px, 0.8vw, 9px);
+}
+#screen3 .s3-compare-bridge {
+  text-align: center;
+  font-size: clamp(6px, 0.68vw, 8px);
+  letter-spacing: 0.14em; text-transform: uppercase;
+  color: rgba(167,139,250,0.55);
+  margin: clamp(4px, 0.6vw, 8px) 0 clamp(10px, 1.2vw, 14px);
+}
+
+#screen3 .cnode.gap-solid {
+  border-color: rgba(34,211,238,0.7); background: #0d2436;
+  box-shadow: 0 0 12px rgba(34,211,238,0.18);
+}
+#screen3 .cnode.gap-shaky {
+  border-color: rgba(251,191,36,0.75); background: rgba(251,191,36,0.06);
+  box-shadow: 0 0 14px rgba(251,191,36,0.28);
+}
+#screen3 .cnode.gap-missing {
+  border-color: rgba(248,113,113,0.75); background: rgba(248,113,113,0.06);
+  box-shadow: 0 0 14px rgba(248,113,113,0.25);
+}
+#screen3 .cstage.gap-col .cname { color: rgba(255,255,255,0.55); }
+#screen3 .cstage.gap-col.gap-shaky .cname { color: rgba(251,191,36,0.85); }
+#screen3 .cstage.gap-col.gap-missing .cname { color: rgba(248,113,113,0.85); }
+
+#screen3 .s3-gap-panel {
+  width: 100%; margin-top: clamp(16px, 2.2vw, 24px);
+  border-top: 1px solid rgba(255,255,255,0.06);
+  padding-top: clamp(14px, 2vw, 20px);
+}
+#screen3 .s3-gap-head {
+  font-size: clamp(7px, 0.82vw, 10px);
+  font-weight: 800; letter-spacing: 0.16em; text-transform: uppercase;
+  color: rgba(255,255,255,0.5);
+  text-align: center; margin-bottom: clamp(10px, 1.4vw, 14px);
+}
+#screen3 .s3-gap-item {
+  display: flex; flex-direction: column; gap: 6px;
+  padding: clamp(10px, 1.2vw, 14px) clamp(12px, 1.4vw, 16px);
+  margin-bottom: clamp(8px, 1vw, 10px);
+  border-radius: 8px;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(255,255,255,0.06);
+  opacity: 0; transform: translateY(8px);
+  animation: up 0.45s ease forwards;
+}
+#screen3 .s3-gap-item.shaky { border-left: 2px solid rgba(251,191,36,0.75); }
+#screen3 .s3-gap-item.missing { border-left: 2px solid rgba(248,113,113,0.75); }
+#screen3 .s3-gap-top {
+  display: flex; align-items: center; justify-content: space-between; gap: 8px;
+}
+#screen3 .s3-gap-stage {
+  font-size: clamp(7px, 0.85vw, 10px);
+  font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase;
+  color: #fff;
+}
+#screen3 .s3-gap-badge {
+  font-size: clamp(5px, 0.62vw, 7px);
+  font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase;
+  padding: 3px 7px; border-radius: 4px; flex-shrink: 0;
+}
+#screen3 .s3-gap-badge.shaky {
+  color: rgba(251,191,36,0.95); background: rgba(251,191,36,0.1);
+  border: 1px solid rgba(251,191,36,0.25);
+}
+#screen3 .s3-gap-badge.missing {
+  color: rgba(248,113,113,0.95); background: rgba(248,113,113,0.1);
+  border: 1px solid rgba(248,113,113,0.25);
+}
+#screen3 .s3-gap-insight {
+  font-size: clamp(7px, 0.82vw, 10px);
+  color: rgba(255,255,255,0.58);
+  line-height: 1.5; letter-spacing: 0.02em;
+}
+#screen3 .s3-gap-fix {
+  display: flex; align-items: flex-start; gap: 8px;
+  padding-top: 4px;
+  border-top: 1px solid rgba(255,255,255,0.05);
+  margin-top: 2px;
+}
+#screen3 .s3-gap-fix-label {
+  font-size: clamp(5px, 0.6vw, 7px);
+  font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase;
+  color: rgba(34,211,238,0.65); flex-shrink: 0; margin-top: 2px;
+}
+#screen3 .s3-gap-fix-text {
+  font-size: clamp(7px, 0.8vw, 10px);
+  color: rgba(34,211,238,0.88);
+  line-height: 1.45; letter-spacing: 0.03em;
+}
+#screen3 .s3-solid-summary {
+  font-size: clamp(7px, 0.82vw, 10px);
+  color: rgba(34,211,238,0.75);
+  text-align: center; line-height: 1.5;
+  margin-bottom: clamp(10px, 1.4vw, 14px);
+  letter-spacing: 0.03em;
+}
+#screen3 .s3-actions-note {
+  font-size: clamp(6px, 0.72vw, 9px);
+  color: rgba(255,255,255,0.4);
+  letter-spacing: 0.04em;
+  line-height: 1.5;
+  margin-bottom: clamp(10px, 1.2vw, 14px);
+  max-width: 36em;
+  margin-left: auto; margin-right: auto;
+}
+#screen3 .s3-diag-head {
+  font-size: clamp(8px, 0.95vw, 11px);
+  font-weight: 700; letter-spacing: 0.06em;
+  color: rgba(255,255,255,0.72);
+  text-align: center; line-height: 1.45;
+  margin-bottom: clamp(12px, 1.6vw, 18px);
+}
+
 #s3-actions { margin-top: clamp(14px, 2vw, 20px); opacity: 0; transition: opacity 0.5s; text-align: center; }
 #s3-actions.show { opacity: 1; }
 #screen3 .btn {
@@ -5892,6 +6043,49 @@ function s3_paintProg(){
 }
 function s3_shuffle(a){a=a.slice();for(var i=a.length-1;i>0;i--){var j=Math.floor(Math.random()*(i+1));var t=a[i];a[i]=a[j];a[j]=t;}return a;}
 
+function s3_gapLabel(state){
+  if(state==='shaky') return 'Needs work';
+  if(state==='missing') return 'Missing';
+  return 'Solid';
+}
+
+function s3_collectGaps(){
+  var gaps=[], solid=[];
+  S3_FLOW.stages.forEach(function(s,i){
+    var st=s3_answers[i];
+    if(st==='shaky'||st==='missing'){
+      gaps.push({i:i, stage:s, state:st, insight:st==='shaky'?s.diag.shaky:s.diag.missing, fix:s.fix});
+    } else if(st==='solid') solid.push(s.name);
+  });
+  return {gaps:gaps, solid:solid};
+}
+
+function s3_legendHtml(){
+  return '<div class="s3-legend">'+
+    '<div class="s3-legend-item"><span class="s3-legend-dot solid"></span>Solid — you\'ve got this</div>'+
+    '<div class="s3-legend-item"><span class="s3-legend-dot shaky"></span>Needs work — fragile</div>'+
+    '<div class="s3-legend-item"><span class="s3-legend-dot missing"></span>Missing — big gap</div>'+
+  '</div>';
+}
+
+function s3_buildChainRow(className, nodeClassFn, animModeFn, onNodeReady){
+  var row=document.createElement('div'); row.className='chain '+className;
+  S3_FLOW.stages.forEach(function(s,i){
+    var stEl=document.createElement('div');
+    var nc=nodeClassFn?nodeClassFn(i,s):'';
+    stEl.className='cstage'+(nc?' gap-col '+nc:'');
+    stEl.innerHTML='<div class="cnode'+(nc?' gap-'+nc:'')+'" id="s3-'+className+'-'+i+'"><canvas width="34" height="34"></canvas></div><div class="cname">'+s.name+'</div>';
+    row.appendChild(stEl);
+  });
+  row.querySelectorAll('.cnode').forEach(function(node,i){
+    var cnv=node.querySelector('canvas');
+    var mode=animModeFn?animModeFn(i):'live';
+    s3_chainRafs.push(s3_runCanvas(cnv,i,mode));
+    if(onNodeReady) onNodeReady(node,i);
+  });
+  return row;
+}
+
 var S3_WARN='M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0zM12 9v4M12 17h.01';
 var S3_OPT_GLY=[
   'M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5',
@@ -5938,49 +6132,120 @@ function s3_renderStage(i){
 
 function s3_renderDiag(){
   s3_paintProg();
+  document.getElementById('s3-prog').style.display='';
   document.getElementById('s3-body').innerHTML='';
   var diag=document.getElementById('s3-diag'); diag.innerHTML='';
-  var weak=[];
-  S3_FLOW.stages.forEach(function(s,i){ if(s3_answers[i]==='shaky'||s3_answers[i]==='missing')weak.push({s:s,st:s3_answers[i]}); });
+  var data=s3_collectGaps();
+  var weak=data.gaps;
+  var head=document.createElement('div');
+  head.className='s3-diag-head';
+  if(weak.length===0){
+    head.textContent='Nice — nothing major flagged. Here\u2019s a quick read before we show the ideal flow.';
+  } else if(weak.length===1){
+    head.textContent='We spotted 1 area to look at. Here\u2019s what it usually means for your operation.';
+  } else {
+    head.textContent='We spotted '+weak.length+' areas to look at. Here\u2019s what they usually mean.';
+  }
+  diag.appendChild(head);
   if(weak.length===0){
     var l=document.createElement('div');l.className='diagcard shaky in';
-    l.innerHTML='<div class="digi shaky"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(251,191,36,.9)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="'+S3_WARN+'"/></svg></div><div class="diagbody"><b>Tight ship</b><span>You ran the table. Either you\u2019ve built a solid operation, or there\u2019s a blind spot worth fresh eyes. Worth a conversation either way.</span></div>';
+    l.innerHTML='<div class="digi shaky"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(251,191,36,.9)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="'+S3_WARN+'"/></svg></div><div class="diagbody"><b>Tight ship</b><span>You ran the table without major gaps. Either things are genuinely solid, or there\u2019s a blind spot only an outside eye catches. Either way, worth seeing the ideal flow next.</span></div>';
     diag.appendChild(l);
   } else {
     weak.forEach(function(w,i){
-      var col=w.st==='shaky'?'rgba(251,191,36,.9)':'rgba(248,113,113,.9)';
-      var l=document.createElement('div');l.className='diagcard '+w.st;
-      l.innerHTML='<div class="digi '+w.st+'"><svg viewBox="0 0 24 24" fill="none" stroke="'+col+'" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="'+S3_WARN+'"/></svg></div><div class="diagbody"><b>'+w.s.name+'</b><span>'+(w.st==='shaky'?w.s.diag.shaky:w.s.diag.missing)+'</span></div>';
+      var col=w.state==='shaky'?'rgba(251,191,36,.9)':'rgba(248,113,113,.9)';
+      var l=document.createElement('div');l.className='diagcard '+w.state;
+      l.innerHTML='<div class="digi '+w.state+'"><svg viewBox="0 0 24 24" fill="none" stroke="'+col+'" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="'+S3_WARN+'"/></svg></div><div class="diagbody"><b>'+w.stage.name+' · '+s3_gapLabel(w.state)+'</b><span>'+w.insight+'</span></div>';
       diag.appendChild(l); setTimeout(function(){l.classList.add('in');},150+i*280);
     });
   }
   var delay=150+weak.length*280+300, a=document.getElementById('s3-actions');
-  setTimeout(function(){a.innerHTML='<button class="btn btn-primary" id="s3-ideal">Show me the ideal flow</button>';a.classList.add('show');
-    document.getElementById('s3-ideal').addEventListener('click',s3_renderIdeal);},delay);
+  setTimeout(function(){
+    a.innerHTML='<button class="btn btn-primary" id="s3-ideal">See your flow vs the ideal</button>';
+    a.classList.add('show');
+    document.getElementById('s3-ideal').addEventListener('click',s3_renderIdeal);
+  },delay);
 }
 
 function s3_renderIdeal(){
   s3_chainRafs.forEach(function(s){s();});s3_chainRafs=[];
   document.getElementById('s3-diag').innerHTML='';
   document.getElementById('s3-actions').classList.remove('show');
+  document.getElementById('s3-prog').style.display='none';
   var body=document.getElementById('s3-body'); body.innerHTML='';
-  var chain=document.createElement('div'); chain.className='chain';
+  var data=s3_collectGaps();
+
+  var wrap=document.createElement('div'); wrap.className='s3-compare-wrap';
+  wrap.innerHTML='<p class="s3-compare-intro">Top row is <strong style="color:rgba(255,255,255,.75)">where you are today</strong> based on your answers. Bottom row is <strong style="color:rgba(34,211,238,.85)">where a smooth operation lands</strong> — with what to fix at each stage.</p>';
+  wrap.insertAdjacentHTML('beforeend', s3_legendHtml());
+
+  var rowYou=document.createElement('div'); rowYou.className='s3-compare-row';
+  rowYou.innerHTML='<div class="s3-row-tag">You today</div>';
+  rowYou.appendChild(s3_buildChainRow('you', function(i){ return s3_answers[i]||'missing'; }, function(i){ return s3_answers[i]||'missing'; }));
+  wrap.appendChild(rowYou);
+
+  var bridge=document.createElement('div');
+  bridge.className='s3-compare-bridge';
+  bridge.textContent=data.gaps.length?('\u2193 '+data.gaps.length+' gap'+(data.gaps.length>1?'s':'')+' to close'):'\u2193 looking good — see ideal below';
+  wrap.appendChild(bridge);
+
+  var rowIdeal=document.createElement('div'); rowIdeal.className='s3-compare-row';
+  rowIdeal.innerHTML='<div class="s3-row-tag">Ideal flow</div>';
+  var idealChain=document.createElement('div'); idealChain.className='chain ideal';
   S3_FLOW.stages.forEach(function(s,i){
-    var st=document.createElement('div');st.className='cstage';
-    st.innerHTML='<div class="cnode" id="s3-in'+i+'"><canvas width="34" height="34"></canvas></div><div class="cname">'+s.name+'</div><div class="cfix" id="s3-if'+i+'">'+s.fix+'</div>';
-    chain.appendChild(st);
+    var stEl=document.createElement('div'); stEl.className='cstage';
+    stEl.innerHTML='<div class="cnode" id="s3-ideal-'+i+'"><canvas width="34" height="34"></canvas></div><div class="cname">'+s.name+'</div><div class="cfix" id="s3-if'+i+'">'+s.fix+'</div>';
+    idealChain.appendChild(stEl);
   });
-  body.appendChild(chain);
-  var stages=chain.querySelectorAll('.cstage');
-  stages.forEach(function(st,i){
-    var cnv=document.getElementById('s3-in'+i).querySelector('canvas');
+  rowIdeal.appendChild(idealChain);
+  wrap.appendChild(rowIdeal);
+  body.appendChild(wrap);
+
+  idealChain.querySelectorAll('.cstage').forEach(function(st,i){
+    var cnv=document.getElementById('s3-ideal-'+i).querySelector('canvas');
     s3_chainRafs.push(s3_runCanvas(cnv,i,'live'));
-    setTimeout(function(){document.getElementById('s3-in'+i).className='cnode solid';st.classList.add('done');document.getElementById('s3-if'+i).classList.add('show');},i*180);
+    setTimeout(function(){
+      document.getElementById('s3-ideal-'+i).className='cnode solid';
+      st.classList.add('done');
+      document.getElementById('s3-if'+i).classList.add('show');
+    },400+i*180);
   });
+
+  var panel=document.createElement('div'); panel.className='s3-gap-panel';
+  if(data.solid.length){
+    var sum=document.createElement('div'); sum.className='s3-solid-summary';
+    sum.textContent='Looking solid: '+data.solid.join(', ')+'.';
+    panel.appendChild(sum);
+  }
+  if(data.gaps.length){
+    var gh=document.createElement('div'); gh.className='s3-gap-head';
+    gh.textContent='What to fix — and why it matters';
+    panel.appendChild(gh);
+    data.gaps.forEach(function(g,i){
+      var item=document.createElement('div'); item.className='s3-gap-item '+g.state;
+      item.style.animationDelay=(0.15+i*0.12)+'s';
+      item.innerHTML=
+        '<div class="s3-gap-top"><span class="s3-gap-stage">'+g.stage.name+'</span><span class="s3-gap-badge '+g.state+'">'+s3_gapLabel(g.state)+'</span></div>'+
+        '<div class="s3-gap-insight">'+g.insight+'</div>'+
+        '<div class="s3-gap-fix"><span class="s3-gap-fix-label">Fix</span><span class="s3-gap-fix-text">'+g.fix+'</span></div>';
+      panel.appendChild(item);
+    });
+  } else {
+    var ok=document.createElement('div'); ok.className='s3-gap-head';
+    ok.textContent='No major gaps flagged — the ideal flow shows what great looks like end to end.';
+    panel.appendChild(ok);
+  }
+  body.appendChild(panel);
+
   var a=document.getElementById('s3-actions');
-  setTimeout(function(){a.innerHTML='<button class="btn btn-primary" id="s3-talk">Let\u2019s close these gaps</button><button class="btn btn-ghost" id="s3-restart">Start over</button>';a.classList.add('show');
+  var note=data.gaps.length
+    ? 'We can help you close these gaps stage by stage — starting with the ones marked Missing.'
+    : 'Even without major gaps, a quick conversation can pressure-test whether anything\u2019s hiding between the stages.';
+  setTimeout(function(){
+    a.innerHTML='<p class="s3-actions-note">'+note+'</p><button class="btn btn-primary" id="s3-talk">Let\u2019s close these gaps</button><button class="btn btn-ghost" id="s3-restart">Start over</button>';
+    a.classList.add('show');
     document.getElementById('s3-restart').addEventListener('click',initScreen3);
-  },stages.length*180+300);
+  }, S3_FLOW.stages.length*180+500);
 }
 
 function stopScreen3(){
@@ -5998,6 +6263,7 @@ function initScreen3(){
   document.getElementById('s3-diag').innerHTML='';
   document.getElementById('s3-actions').innerHTML='';
   document.getElementById('s3-actions').classList.remove('show');
+  document.getElementById('s3-prog').style.display='';
   s3_buildProg();
   s3_renderStage(0);
 }
