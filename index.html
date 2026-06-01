@@ -696,6 +696,179 @@ html, body {
 @media (max-width: 580px) {
   .grid1 { grid-template-columns: repeat(2, 1fr); }
   .grid2 { grid-template-columns: repeat(2, 1fr); }
+
+  .back-btn {
+    top: max(14px, env(safe-area-inset-top, 0px) + 10px);
+    left: max(14px, env(safe-area-inset-left, 0px) + 10px);
+  }
+
+  #screen3 {
+    padding:
+      max(48px, calc(env(safe-area-inset-top, 0px) + 44px))
+      max(14px, calc(env(safe-area-inset-right, 0px) + 12px))
+      max(20px, calc(env(safe-area-inset-bottom, 0px) + 16px))
+      max(14px, calc(env(safe-area-inset-left, 0px) + 12px));
+  }
+
+  #screen3 .s3-stage,
+  #screen3 .s3-stage.s3-results-mode {
+    width: min(92vw, 520px);
+  }
+
+  #screen3:not(.s3-results-active) .s3-header {
+    margin-bottom: 10px;
+  }
+  #screen3 .s3-context,
+  #screen3:not(.s3-results-active) .s3-context,
+  #screen3.s3-results-active .s3-context {
+    font-size: 10px;
+    letter-spacing: 0.12em;
+    margin-bottom: 12px;
+  }
+
+  #screen3 .prog {
+    margin-bottom: 16px;
+  }
+  #screen3:not(.s3-results-active) .prog {
+    margin-bottom: 20px;
+  }
+
+  #screen3 .pdot {
+    width: 28px;
+    height: 28px;
+  }
+  #screen3 .pdot.current {
+    transform: scale(1.04);
+  }
+  #screen3 .pdot canvas {
+    width: 16px;
+    height: 16px;
+  }
+  #screen3 .pdot.answer-solid::after,
+  #screen3 .pdot.answer-shaky::after,
+  #screen3 .pdot.answer-missing::after {
+    width: 8px;
+    height: 8px;
+  }
+  #screen3 .pdot.answer-solid::before,
+  #screen3 .pdot.answer-shaky::before,
+  #screen3 .pdot.answer-missing::before {
+    width: 4px;
+    height: 4px;
+    right: 1px;
+    top: 1px;
+  }
+  #screen3 .pline {
+    max-width: 12px;
+  }
+
+  #screen3 .s3-question {
+    margin-bottom: 16px;
+  }
+  #screen3 .s3-stage-q {
+    font-size: 15px;
+    line-height: 1.55;
+    margin-top: 12px;
+    max-width: none;
+    padding: 0 2px;
+  }
+
+  #screen3 .tile-opts {
+    margin-top: 8px;
+    padding-top: 14px;
+    gap: 4px;
+  }
+  #screen3 .tile-opt {
+    padding: 13px 6px;
+  }
+  #screen3 .tile-text {
+    font-size: 13px;
+    line-height: 1.55;
+  }
+
+  #screen3 .backstage {
+    margin-top: 16px;
+    font-size: 9px;
+  }
+
+  #screen3 .s3-results-head {
+    margin-bottom: 14px;
+  }
+  #screen3 .s3-results-title {
+    font-size: 16px;
+    margin-bottom: 8px;
+  }
+  #screen3 .s3-results-sub {
+    font-size: 12px;
+    padding: 0 4px;
+  }
+  #screen3 .s3-results-summary {
+    margin: 10px 0 14px;
+    gap: 8px;
+  }
+  #screen3 .s3-sum-pill {
+    font-size: 11px;
+    padding: 6px 12px;
+  }
+
+  #screen3 .s3-results .s3-legend {
+    flex-direction: column;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+  #screen3 .s3-results .s3-legend-item {
+    font-size: 11px;
+  }
+
+  #screen3 .s3-result-card {
+    padding: 11px 4px;
+  }
+  #screen3 .s3-result-top {
+    gap: 8px;
+    flex-wrap: wrap;
+    row-gap: 4px;
+  }
+  #screen3 .s3-result-name {
+    font-size: 11px;
+    letter-spacing: 0.14em;
+  }
+  #screen3 .s3-result-tease {
+    flex-basis: 100%;
+    width: 100%;
+    margin-left: calc(1.1em + 8px);
+    text-align: left;
+    font-size: 11px;
+  }
+
+  #screen3 .s3-results-cta-box {
+    padding-top: 16px;
+    margin-top: 12px;
+  }
+  #screen3 .s3-results-cta-box p {
+    font-size: 12px;
+    padding: 0 4px;
+  }
+
+  #screen3.s3-results-active #s3-actions {
+    margin-top: 18px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 4px;
+    padding: 0 8px;
+  }
+  #screen3 .btn {
+    display: block;
+    width: 100%;
+    max-width: 300px;
+    margin: 0 auto;
+    padding: 14px 18px;
+    font-size: 11px;
+  }
+  #screen3.s3-results-active .btn {
+    margin: 0 auto;
+  }
 }
 </style>
 </head>
