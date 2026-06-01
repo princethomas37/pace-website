@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>PACE</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
@@ -56,7 +56,7 @@ body::after {
 .question { text-align: center; margin-bottom: clamp(22px, 3.5vw, 56px); }
 .question h2 {
   font-size: clamp(14px, 2.45vw, 31px);
-  font-weight: 900; letter-spacing: 0.18em; color: #fff; text-transform: uppercase;
+  font-weight: 800; letter-spacing: 0.18em; color: #fff; text-transform: uppercase;
   text-shadow: 0 0 40px rgba(34,211,238,0.15);
 }
 .question p {
@@ -152,27 +152,18 @@ body::after {
 #screen3:not(.s3-results-active) .s3-header {
   margin-bottom: clamp(12px, 1.6vw, 18px);
 }
-#screen3 .s3-context {
-  font-size: clamp(10px, 1.05vw, 12px);
-  font-weight: 500;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: rgba(34,211,238,0.72);
-  margin-bottom: clamp(10px, 1.4vw, 16px);
-  text-shadow: 0 0 20px rgba(34,211,238,0.2);
+#screen3 .question h2 {
+  font-size: clamp(12px, 2vw, 24px);
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  line-height: 1.35;
 }
-#screen3:not(.s3-results-active) .s3-context {
-  margin-bottom: clamp(14px, 2vw, 22px);
-}
-#screen3 .s3-flow-title {
-  font-size: clamp(14px, 1.55vw, 18px);
-  font-weight: 600;
-  letter-spacing: 0.04em;
-  color: rgba(255,255,255,0.88);
-  line-height: 1.25;
-}
-#screen3:not(.s3-results-active) .s3-flow-title {
-  display: none;
+#screen3 .question p {
+  font-size: clamp(7px, 0.9vw, 11px);
+  letter-spacing: 0.28em;
+  color: rgba(255,255,255,0.42);
+  margin-top: 7px;
+  text-transform: lowercase;
 }
 @keyframes s3CardOut { to { opacity: 0; transform: translateY(-12px); } }
 @keyframes s3SlideIn { to { opacity: 1; transform: translateX(0); } }
@@ -285,14 +276,14 @@ body::after {
   width: clamp(24px, 2.8vw, 28px); height: clamp(24px, 2.8vw, 28px);
 }
 #screen3 .s3-stage-label {
-  font-size: clamp(10px, 1.05vw, 12px);
-  font-weight: 500; letter-spacing: 0.2em;
-  text-transform: uppercase; color: rgba(34,211,238,0.58);
+  font-size: clamp(7px, 0.78vw, 12px);
+  font-weight: 800; letter-spacing: 0.16em;
+  text-transform: uppercase; color: #fff;
 }
 #screen3 .s3-stage-q {
-  font-size: clamp(15px, 1.65vw, 20px);
-  font-weight: 400; letter-spacing: 0.012em;
-  color: rgba(255,255,255,0.9); line-height: 1.7;
+  font-size: clamp(13px, 1.45vw, 18px);
+  font-weight: 500; letter-spacing: 0.03em;
+  color: rgba(255,255,255,0.88); line-height: 1.65;
   margin-top: clamp(14px, 1.6vw, 20px);
   max-width: 28em;
   margin-left: auto; margin-right: auto;
@@ -339,9 +330,9 @@ body::after {
 }
 #screen3 .tile-text {
   flex: 1;
-  font-size: clamp(12px, 1.3vw, 15px);
-  font-weight: 400; letter-spacing: 0.015em;
-  color: rgba(255,255,255,0.78); line-height: 1.65;
+  font-size: clamp(10px, 1.15vw, 13px);
+  font-weight: 400; letter-spacing: 0.04em;
+  color: rgba(255,255,255,0.58); line-height: 1.5;
   transition: color 0.25s ease;
 }
 #screen3 .tile-arrow {
@@ -463,10 +454,7 @@ body::after {
 #screen3.s3-results-active .s3-header {
   margin-bottom: clamp(12px, 1.6vw, 18px);
 }
-#screen3.s3-results-active .s3-context {
-  margin-bottom: clamp(14px, 2vw, 22px);
-}
-#screen3.s3-results-active .s3-flow-title {
+#screen3.s3-results-active .question h2 {
   display: none;
 }
 
@@ -478,23 +466,23 @@ body::after {
   margin-bottom: clamp(16px, 2.2vw, 24px);
 }
 #screen3 .s3-results-title {
-  font-size: clamp(16px, 1.75vw, 21px);
-  font-weight: 500;
-  letter-spacing: 0.01em;
+  font-size: clamp(12px, 2vw, 24px);
+  font-weight: 800;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: #fff;
   margin-bottom: clamp(8px, 1vw, 12px);
-  background: linear-gradient(120deg, rgba(255,255,255,0.95) 15%, rgba(34,211,238,0.75) 100%);
-  -webkit-background-clip: text;
-  background-clip: text;
-  -webkit-text-fill-color: transparent;
+  text-shadow: 0 0 40px rgba(34,211,238,0.15);
 }
 #screen3 .s3-results-sub {
-  font-size: clamp(12px, 1.35vw, 15px);
+  font-size: clamp(7px, 0.9vw, 11px);
   font-weight: 400;
-  color: rgba(255,255,255,0.52);
-  line-height: 1.6;
+  color: rgba(255,255,255,0.42);
+  line-height: 1.5;
   max-width: 28em;
   margin: 0 auto;
-  letter-spacing: 0.02em;
+  letter-spacing: 0.28em;
+  text-transform: lowercase;
 }
 #screen3 .s3-results-summary {
   display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;
@@ -621,9 +609,9 @@ body::after {
   min-width: 1.1em;
 }
 #screen3 .s3-result-name {
-  font-size: clamp(11px, 1.15vw, 13px);
-  font-weight: 500; letter-spacing: 0.06em;
-  text-transform: none; color: rgba(255,255,255,0.86);
+  font-size: clamp(7px, 0.78vw, 12px);
+  font-weight: 800; letter-spacing: 0.16em;
+  text-transform: uppercase; color: #fff;
   flex: 1;
 }
 
@@ -789,8 +777,8 @@ body::after {
 #screen3 .btn {
   padding: clamp(12px, 1.5vw, 16px) clamp(20px, 2.5vw, 32px);
   border-radius: 10px; cursor: pointer; font-family: inherit;
-  font-size: clamp(12px, 1.3vw, 14px); font-weight: 500;
-  letter-spacing: 0.1em; text-transform: uppercase;
+  font-size: clamp(10px, 1.1vw, 12px); font-weight: 800;
+  letter-spacing: 0.14em; text-transform: uppercase;
   border: 1px solid rgba(255,255,255,0.12); margin: 4px;
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
@@ -843,12 +831,13 @@ body::after {
   #screen3:not(.s3-results-active) .s3-header {
     margin-bottom: 10px;
   }
-  #screen3 .s3-context,
-  #screen3:not(.s3-results-active) .s3-context,
-  #screen3.s3-results-active .s3-context {
-    font-size: 11px;
+  #screen3 .question h2 {
+    font-size: 14px;
     letter-spacing: 0.12em;
-    margin-bottom: 12px;
+  }
+  #screen3 .question p {
+    font-size: 9px;
+    margin-bottom: 10px;
   }
 
   #screen3 .prog {
@@ -891,8 +880,8 @@ body::after {
     margin-bottom: 16px;
   }
   #screen3 .s3-stage-q {
-    font-size: 16px;
-    line-height: 1.55;
+    font-size: 15px;
+    line-height: 1.6;
     margin-top: 12px;
     max-width: none;
     padding: 0 2px;
@@ -907,8 +896,8 @@ body::after {
     padding: 13px 6px;
   }
   #screen3 .tile-text {
-    font-size: 14px;
-    line-height: 1.55;
+    font-size: 12px;
+    line-height: 1.5;
   }
 
   #screen3 .backstage {
@@ -920,11 +909,11 @@ body::after {
     margin-bottom: 14px;
   }
   #screen3 .s3-results-title {
-    font-size: 17px;
+    font-size: 14px;
     margin-bottom: 8px;
   }
   #screen3 .s3-results-sub {
-    font-size: 13px;
+    font-size: 9px;
     padding: 0 4px;
   }
   #screen3 .s3-results-summary {
@@ -1085,9 +1074,9 @@ body::after {
 <!-- SCREEN 3 — Gap reveal / stage-by-stage flow -->
 <div class="screen out-r" id="screen3">
   <div class="s3-stage">
-    <div class="s3-header">
-      <div class="s3-context" id="s3-context"></div>
-      <div class="s3-flow-title" id="s3-flow-title"></div>
+    <div class="s3-header question">
+      <h2 id="s3-flow-title"></h2>
+      <p id="s3-context"></p>
     </div>
     <div class="prog" id="s3-prog"></div>
     <div id="s3-body"></div>
@@ -6327,7 +6316,7 @@ function s3_updateHeader() {
   var titleEl = document.getElementById('s3-flow-title');
   if (ctxEl) {
     ctxEl.textContent = (userSelection.category && userSelection.subtype)
-      ? s3CatLabel(userSelection.category) + ' · ' + userSelection.subtype
+      ? (s3CatLabel(userSelection.category) + ' · ' + userSelection.subtype).toLowerCase()
       : '';
   }
   if (titleEl) titleEl.textContent = S3_FLOW.title || '';
@@ -6606,7 +6595,7 @@ function s3_renderResults(){
   var head=document.createElement('div'); head.className='s3-results-head';
   head.innerHTML=
     '<div class="s3-results-title">Your flow at a glance</div>'+
-    '<p class="s3-results-sub">We mapped where you stand at each stage.</p>';
+    '<p class="s3-results-sub">we mapped where you stand at each stage</p>';
   root.appendChild(head);
 
   var pills=document.createElement('div'); pills.className='s3-results-summary';
