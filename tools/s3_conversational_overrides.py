@@ -48,7 +48,7 @@ OVERRIDES = {
     ("logistics", "RAIL"): {2: {"q": "{unit} is on the rails. If the {client} calls, what can you tell them?"}},
     ("logistics", "WAREHOUSING"): {3: {"q": "Pick wave for {unit}. How do you know the right stuff left the building?"}},
     ("logistics", "LAST MILE"): {1: {"q": "Same-day {unit}. How do drivers know where to go next?"}},
-    ("logistics", "COLD CHAIN"): {2: {"q": "Cold {unit} on the road. If temp slips, how soon do you know?"}},
+    ("logistics", "COLD CHAIN"): {2: {"q": "That load needs to stay cold. If the temperature slips, how soon do you know?"}},
     ("logistics", "CUSTOMS"): {0: {"q": "An importer sends docs for {unit}. What happens before you file?"}},
     ("logistics", "SUPPLY CHAIN"): {1: {"q": "Planning {unit} — do you feel ahead of stockouts or always reacting?"}},
     ("logistics", "MOVING"): {2: {"q": "Mid-{work}, a box goes missing. When do you find out?"}},
