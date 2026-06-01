@@ -204,7 +204,7 @@ FLOWS = {
 "construction": {
   "stages": [
     {"name":"Find Bid","icon":"lead",
-     "q":"A {unit} opportunity comes across your desk. What happens next?",
+     "q":"A promising {work} comes across your desk. What happens next?",
      "opts":["Tracked with deadlines — we know what to pursue.","Folder and memory — mostly works.","Jobs come through the network — nothing central."],
      "states":["solid","shaky","missing"],
      "diag":{"shaky":"Missed deadlines and wrong pursuits when bids aren't visible.","missing":"Growth feels unpredictable without a bid pipeline."},
