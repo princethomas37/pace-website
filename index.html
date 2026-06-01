@@ -380,12 +380,12 @@ html, body {
   font-size: clamp(12px, 1.35vw, 15px);
   color: rgba(255,255,255,0.62);
   line-height: 1.55;
-  max-width: 36em;
+  max-width: 32em;
   margin: 0 auto;
 }
 #screen3 .s3-results-summary {
   display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;
-  margin: clamp(14px, 2vw, 20px) 0;
+  margin: clamp(10px, 1.4vw, 16px) 0 clamp(14px, 2vw, 20px);
 }
 #screen3 .s3-sum-pill {
   font-size: clamp(11px, 1.2vw, 13px);
@@ -399,11 +399,11 @@ html, body {
 #screen3 .s3-sum-pill.solid { color: rgba(34,211,238,0.95); background: rgba(34,211,238,0.08); border: 1px solid rgba(34,211,238,0.22); }
 
 #screen3 .s3-legend {
-  display: flex; flex-wrap: wrap; justify-content: center; gap: clamp(12px, 2vw, 18px);
-  margin-bottom: clamp(18px, 2.5vw, 26px);
-  padding: clamp(10px, 1.4vw, 14px);
+  display: flex; flex-wrap: wrap; justify-content: center; gap: clamp(10px, 1.5vw, 14px);
+  margin-bottom: clamp(12px, 1.6vw, 18px);
+  padding: clamp(8px, 1vw, 10px) clamp(10px, 1.2vw, 12px);
   background: rgba(255,255,255,0.03);
-  border-radius: 10px;
+  border-radius: 8px;
   border: 1px solid rgba(255,255,255,0.06);
 }
 #screen3 .s3-legend-item {
@@ -417,23 +417,51 @@ html, body {
 }
 
 #screen3 .s3-result-cards {
-  display: flex; flex-direction: column; gap: clamp(10px, 1.4vw, 14px);
+  display: flex; flex-direction: column; gap: clamp(6px, 0.8vw, 8px);
   width: 100%;
+  margin-bottom: clamp(8px, 1vw, 12px);
 }
 #screen3 .s3-result-card {
-  border-radius: 10px;
-  padding: clamp(14px, 1.8vw, 18px) clamp(14px, 1.8vw, 20px);
+  border-radius: 8px;
+  padding: clamp(10px, 1.2vw, 12px) clamp(12px, 1.4vw, 16px);
   background: rgba(255,255,255,0.04);
   border: 1px solid rgba(255,255,255,0.08);
   opacity: 0;
-  animation: up 0.45s ease forwards;
+  animation: up 0.35s ease forwards;
 }
 #screen3 .s3-result-card.solid { border-left: 3px solid rgba(34,211,238,0.75); }
 #screen3 .s3-result-card.shaky { border-left: 3px solid rgba(251,191,36,0.8); }
 #screen3 .s3-result-card.missing { border-left: 3px solid rgba(248,113,113,0.8); }
 #screen3 .s3-result-top {
   display: flex; align-items: center; gap: 10px;
-  margin-bottom: 10px; flex-wrap: wrap;
+  flex-wrap: nowrap;
+}
+#screen3 .s3-result-tease {
+  font-size: clamp(11px, 1.15vw, 13px);
+  color: rgba(255,255,255,0.42);
+  margin-top: 6px;
+  line-height: 1.4;
+  letter-spacing: 0.02em;
+}
+#screen3 .s3-result-card.solid .s3-result-tease { color: rgba(34,211,238,0.55); }
+#screen3 .s3-result-card.shaky .s3-result-tease { color: rgba(251,191,36,0.65); }
+#screen3 .s3-result-card.missing .s3-result-tease { color: rgba(248,113,113,0.7); }
+
+#screen3 .s3-results-cta-box {
+  text-align: center;
+  padding: clamp(14px, 1.8vw, 20px);
+  margin-top: clamp(4px, 0.6vw, 8px);
+  border-radius: 10px;
+  background: rgba(34,211,238,0.05);
+  border: 1px solid rgba(34,211,238,0.15);
+}
+#screen3 .s3-results-cta-box p {
+  font-size: clamp(12px, 1.3vw, 14px);
+  color: rgba(255,255,255,0.72);
+  line-height: 1.55;
+  margin: 0;
+  max-width: 28em;
+  margin-left: auto; margin-right: auto;
 }
 #screen3 .s3-result-num {
   font-size: clamp(11px, 1.2vw, 13px);
@@ -455,49 +483,6 @@ html, body {
 #screen3 .s3-result-badge.solid { color: rgba(34,211,238,0.95); background: rgba(34,211,238,0.12); }
 #screen3 .s3-result-badge.shaky { color: rgba(251,191,36,0.95); background: rgba(251,191,36,0.12); }
 #screen3 .s3-result-badge.missing { color: rgba(248,113,113,0.95); background: rgba(248,113,113,0.12); }
-#screen3 .s3-result-you {
-  font-size: clamp(12px, 1.3vw, 14px);
-  color: rgba(255,255,255,0.78);
-  line-height: 1.5;
-  margin-bottom: 8px;
-}
-#screen3 .s3-result-you b {
-  color: rgba(255,255,255,0.45);
-  font-weight: 600;
-  font-size: clamp(10px, 1.05vw, 12px);
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  display: block;
-  margin-bottom: 4px;
-}
-#screen3 .s3-result-insight {
-  font-size: clamp(12px, 1.3vw, 14px);
-  color: rgba(255,255,255,0.65);
-  line-height: 1.55;
-  margin-bottom: 10px;
-}
-#screen3 .s3-result-ideal {
-  font-size: clamp(12px, 1.3vw, 14px);
-  line-height: 1.5;
-  padding: clamp(10px, 1.2vw, 12px);
-  border-radius: 8px;
-  background: rgba(34,211,238,0.06);
-  border: 1px solid rgba(34,211,238,0.15);
-}
-#screen3 .s3-result-ideal b {
-  display: block;
-  font-size: clamp(10px, 1.05vw, 12px);
-  letter-spacing: 0.1em;
-  text-transform: uppercase;
-  color: rgba(34,211,238,0.8);
-  margin-bottom: 4px;
-}
-#screen3 .s3-result-ideal span { color: rgba(34,211,238,0.95); }
-#screen3 .s3-result-ok {
-  font-size: clamp(12px, 1.3vw, 14px);
-  color: rgba(34,211,238,0.85);
-  line-height: 1.5;
-}
 
 #screen3 .s3-compare-wrap {
   width: 100%; margin-bottom: clamp(14px, 2vw, 22px);
@@ -6196,10 +6181,10 @@ function s3_gapLabel(state){
   return 'Solid';
 }
 
-function s3_statusLine(state){
-  if(state==='solid') return 'You\'ve got a solid rhythm here — this stage is working.';
-  if(state==='shaky') return 'This works today — but it\'s fragile and could slip when things get busy.';
-  return 'This is a real gap — it\'s likely costing you time, money, or trust.';
+function s3_teaseLine(state){
+  if(state==='solid') return 'On track';
+  if(state==='shaky') return 'Room to strengthen';
+  return 'Gap identified';
 }
 
 function s3_collectGaps(){
@@ -6305,8 +6290,8 @@ function s3_renderResults(){
 
   var head=document.createElement('div'); head.className='s3-results-head';
   head.innerHTML=
-    '<div class="s3-results-title">Your flow vs the ideal</div>'+
-    '<p class="s3-results-sub">Based on your answers, here\u2019s what\u2019s working, what\u2019s fragile, and what\u2019s missing — plus how to close each gap.</p>';
+    '<div class="s3-results-title">Your flow at a glance</div>'+
+    '<p class="s3-results-sub">We mapped where you stand at each stage. The specifics — and how to close the gaps — come next.</p>';
   root.appendChild(head);
 
   var pills=document.createElement('div'); pills.className='s3-results-summary';
@@ -6329,27 +6314,22 @@ function s3_renderResults(){
         '<span class="s3-result-name">'+st.name+'</span>'+
         '<span class="s3-result-badge '+state+'">'+s3_gapLabel(state)+'</span>'+
       '</div>'+
-      '<div class="s3-result-you"><b>Where you are</b>'+s3_statusLine(state)+'</div>';
-    if(state==='solid'){
-      html+='<div class="s3-result-ok">Keep this rhythm going.</div>'+
-        '<div class="s3-result-ideal"><b>Ideal looks like</b><span>'+st.fix+'</span></div>';
-    } else {
-      html+='<div class="s3-result-insight"><b style="display:block;font-size:clamp(10px,1.05vw,12px);letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:4px;">Why it matters</b>'+
-        (state==='shaky'?st.diag.shaky:st.diag.missing)+'</div>'+
-        '<div class="s3-result-ideal"><b>Close this gap</b><span>'+st.fix+'</span></div>';
-    }
+      '<div class="s3-result-tease">'+s3_teaseLine(state)+'</div>';
     card.innerHTML=html;
     cards.appendChild(card);
   });
   root.appendChild(cards);
+
+  var ctaBox=document.createElement('div'); ctaBox.className='s3-results-cta-box';
+  ctaBox.innerHTML=data.gaps.length
+    ? '<p>We know which stages need work and what to do at each one — that\u2019s the conversation.</p>'
+    : '<p>Your flow looks tight on the surface. A quick walkthrough can still surface what\u2019s hiding between stages.</p>';
+  root.appendChild(ctaBox);
   body.appendChild(root);
 
   var a=document.getElementById('s3-actions');
-  var note=data.gaps.length
-    ? 'You have '+data.gaps.length+' gap'+(data.gaps.length>1?'s':'')+' we can help close — starting with the ones marked Missing.'
-    : 'No major gaps flagged. We can still walk through what the ideal flow looks like in practice.';
   setTimeout(function(){
-    a.innerHTML='<p class="s3-actions-note">'+note+'</p>'+
+    a.innerHTML=
       '<button class="btn btn-primary" id="s3-talk">Let\u2019s close these gaps</button>'+
       '<button class="btn btn-ghost" id="s3-restart">Start over</button>';
     a.classList.add('show');
