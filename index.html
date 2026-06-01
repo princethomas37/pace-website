@@ -353,6 +353,152 @@ html, body {
 }
 #screen3 .cfix.show { opacity: 1; }
 
+#screen3 .s3-stage.s3-results-mode {
+  width: min(94vw, 680px);
+  align-items: stretch;
+}
+#screen3.s3-results-active .prog { display: none; }
+#screen3.s3-results-active .s3-flow-title {
+  font-size: clamp(16px, 2vw, 22px);
+}
+
+#screen3 .s3-results {
+  width: 100%;
+}
+#screen3 .s3-results-head {
+  text-align: center;
+  margin-bottom: clamp(16px, 2.5vw, 24px);
+}
+#screen3 .s3-results-title {
+  font-size: clamp(15px, 1.8vw, 20px);
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.04em;
+  margin-bottom: 8px;
+}
+#screen3 .s3-results-sub {
+  font-size: clamp(12px, 1.35vw, 15px);
+  color: rgba(255,255,255,0.62);
+  line-height: 1.55;
+  max-width: 36em;
+  margin: 0 auto;
+}
+#screen3 .s3-results-summary {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: 10px;
+  margin: clamp(14px, 2vw, 20px) 0;
+}
+#screen3 .s3-sum-pill {
+  font-size: clamp(11px, 1.2vw, 13px);
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 20px;
+  letter-spacing: 0.02em;
+}
+#screen3 .s3-sum-pill.missing { color: rgba(248,113,113,0.95); background: rgba(248,113,113,0.12); border: 1px solid rgba(248,113,113,0.25); }
+#screen3 .s3-sum-pill.shaky { color: rgba(251,191,36,0.95); background: rgba(251,191,36,0.1); border: 1px solid rgba(251,191,36,0.25); }
+#screen3 .s3-sum-pill.solid { color: rgba(34,211,238,0.95); background: rgba(34,211,238,0.08); border: 1px solid rgba(34,211,238,0.22); }
+
+#screen3 .s3-legend {
+  display: flex; flex-wrap: wrap; justify-content: center; gap: clamp(12px, 2vw, 18px);
+  margin-bottom: clamp(18px, 2.5vw, 26px);
+  padding: clamp(10px, 1.4vw, 14px);
+  background: rgba(255,255,255,0.03);
+  border-radius: 10px;
+  border: 1px solid rgba(255,255,255,0.06);
+}
+#screen3 .s3-legend-item {
+  display: flex; align-items: center; gap: 8px;
+  font-size: clamp(11px, 1.15vw, 13px);
+  letter-spacing: 0.02em;
+  color: rgba(255,255,255,0.72);
+}
+#screen3 .s3-legend-dot {
+  width: 10px; height: 10px; border-radius: 50%; flex-shrink: 0;
+}
+
+#screen3 .s3-result-cards {
+  display: flex; flex-direction: column; gap: clamp(10px, 1.4vw, 14px);
+  width: 100%;
+}
+#screen3 .s3-result-card {
+  border-radius: 10px;
+  padding: clamp(14px, 1.8vw, 18px) clamp(14px, 1.8vw, 20px);
+  background: rgba(255,255,255,0.04);
+  border: 1px solid rgba(255,255,255,0.08);
+  opacity: 0;
+  animation: up 0.45s ease forwards;
+}
+#screen3 .s3-result-card.solid { border-left: 3px solid rgba(34,211,238,0.75); }
+#screen3 .s3-result-card.shaky { border-left: 3px solid rgba(251,191,36,0.8); }
+#screen3 .s3-result-card.missing { border-left: 3px solid rgba(248,113,113,0.8); }
+#screen3 .s3-result-top {
+  display: flex; align-items: center; gap: 10px;
+  margin-bottom: 10px; flex-wrap: wrap;
+}
+#screen3 .s3-result-num {
+  font-size: clamp(11px, 1.2vw, 13px);
+  font-weight: 800; color: rgba(255,255,255,0.35);
+  min-width: 1.2em;
+}
+#screen3 .s3-result-name {
+  font-size: clamp(12px, 1.35vw, 15px);
+  font-weight: 800; letter-spacing: 0.1em;
+  text-transform: uppercase; color: #fff;
+  flex: 1;
+}
+#screen3 .s3-result-badge {
+  font-size: clamp(10px, 1.1vw, 12px);
+  font-weight: 700; letter-spacing: 0.06em;
+  text-transform: uppercase;
+  padding: 4px 10px; border-radius: 6px;
+}
+#screen3 .s3-result-badge.solid { color: rgba(34,211,238,0.95); background: rgba(34,211,238,0.12); }
+#screen3 .s3-result-badge.shaky { color: rgba(251,191,36,0.95); background: rgba(251,191,36,0.12); }
+#screen3 .s3-result-badge.missing { color: rgba(248,113,113,0.95); background: rgba(248,113,113,0.12); }
+#screen3 .s3-result-you {
+  font-size: clamp(12px, 1.3vw, 14px);
+  color: rgba(255,255,255,0.78);
+  line-height: 1.5;
+  margin-bottom: 8px;
+}
+#screen3 .s3-result-you b {
+  color: rgba(255,255,255,0.45);
+  font-weight: 600;
+  font-size: clamp(10px, 1.05vw, 12px);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  display: block;
+  margin-bottom: 4px;
+}
+#screen3 .s3-result-insight {
+  font-size: clamp(12px, 1.3vw, 14px);
+  color: rgba(255,255,255,0.65);
+  line-height: 1.55;
+  margin-bottom: 10px;
+}
+#screen3 .s3-result-ideal {
+  font-size: clamp(12px, 1.3vw, 14px);
+  line-height: 1.5;
+  padding: clamp(10px, 1.2vw, 12px);
+  border-radius: 8px;
+  background: rgba(34,211,238,0.06);
+  border: 1px solid rgba(34,211,238,0.15);
+}
+#screen3 .s3-result-ideal b {
+  display: block;
+  font-size: clamp(10px, 1.05vw, 12px);
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  color: rgba(34,211,238,0.8);
+  margin-bottom: 4px;
+}
+#screen3 .s3-result-ideal span { color: rgba(34,211,238,0.95); }
+#screen3 .s3-result-ok {
+  font-size: clamp(12px, 1.3vw, 14px);
+  color: rgba(34,211,238,0.85);
+  line-height: 1.5;
+}
+
 #screen3 .s3-compare-wrap {
   width: 100%; margin-bottom: clamp(14px, 2vw, 22px);
 }
@@ -487,13 +633,14 @@ html, body {
   letter-spacing: 0.03em;
 }
 #screen3 .s3-actions-note {
-  font-size: clamp(6px, 0.72vw, 9px);
-  color: rgba(255,255,255,0.4);
-  letter-spacing: 0.04em;
-  line-height: 1.5;
-  margin-bottom: clamp(10px, 1.2vw, 14px);
+  font-size: clamp(12px, 1.3vw, 14px);
+  color: rgba(255,255,255,0.55);
+  letter-spacing: 0.02em;
+  line-height: 1.55;
+  margin-bottom: clamp(14px, 1.8vw, 18px);
   max-width: 36em;
   margin-left: auto; margin-right: auto;
+  text-align: center;
 }
 #screen3 .s3-diag-head {
   font-size: clamp(8px, 0.95vw, 11px);
@@ -506,10 +653,10 @@ html, body {
 #s3-actions { margin-top: clamp(14px, 2vw, 20px); opacity: 0; transition: opacity 0.5s; text-align: center; }
 #s3-actions.show { opacity: 1; }
 #screen3 .btn {
-  padding: clamp(10px, 1.2vw, 13px) clamp(18px, 2.2vw, 26px);
+  padding: clamp(12px, 1.5vw, 16px) clamp(20px, 2.5vw, 32px);
   border-radius: 8px; cursor: pointer; font-family: inherit;
-  font-size: clamp(6px, 0.75vw, 9px); font-weight: 800;
-  letter-spacing: 0.18em; text-transform: uppercase;
+  font-size: clamp(11px, 1.2vw, 13px); font-weight: 800;
+  letter-spacing: 0.12em; text-transform: uppercase;
   border: 1px solid rgba(255,255,255,0.12); margin: 4px;
   transition: background 0.3s ease;
 }
@@ -6049,6 +6196,12 @@ function s3_gapLabel(state){
   return 'Solid';
 }
 
+function s3_statusLine(state){
+  if(state==='solid') return 'You\'ve got a solid rhythm here — this stage is working.';
+  if(state==='shaky') return 'This works today — but it\'s fragile and could slip when things get busy.';
+  return 'This is a real gap — it\'s likely costing you time, money, or trust.';
+}
+
 function s3_collectGaps(){
   var gaps=[], solid=[];
   S3_FLOW.stages.forEach(function(s,i){
@@ -6123,129 +6276,93 @@ function s3_renderStage(i){
       s3_answers[i]=el.getAttribute('data-state');
       s3_paintProg();
       card.classList.remove('in');card.classList.add('out');
-      setTimeout(function(){ i<S3_FLOW.stages.length-1?s3_renderStage(i+1):s3_renderDiag(); },320);
+      setTimeout(function(){ i<S3_FLOW.stages.length-1?s3_renderStage(i+1):s3_renderResults(); },320);
     });
   });
   var b=card.querySelector('.backstage');
   if(b)b.addEventListener('click',function(){if(i===0)return;card.classList.remove('in');card.classList.add('out');setTimeout(function(){s3_renderStage(i-1);},320);});
 }
 
-function s3_renderDiag(){
-  s3_paintProg();
-  document.getElementById('s3-prog').style.display='';
-  document.getElementById('s3-body').innerHTML='';
-  var diag=document.getElementById('s3-diag'); diag.innerHTML='';
-  var data=s3_collectGaps();
-  var weak=data.gaps;
-  var head=document.createElement('div');
-  head.className='s3-diag-head';
-  if(weak.length===0){
-    head.textContent='Nice — nothing major flagged. Here\u2019s a quick read before we show the ideal flow.';
-  } else if(weak.length===1){
-    head.textContent='We spotted 1 area to look at. Here\u2019s what it usually means for your operation.';
-  } else {
-    head.textContent='We spotted '+weak.length+' areas to look at. Here\u2019s what they usually mean.';
-  }
-  diag.appendChild(head);
-  if(weak.length===0){
-    var l=document.createElement('div');l.className='diagcard shaky in';
-    l.innerHTML='<div class="digi shaky"><svg viewBox="0 0 24 24" fill="none" stroke="rgba(251,191,36,.9)" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="'+S3_WARN+'"/></svg></div><div class="diagbody"><b>Tight ship</b><span>You ran the table without major gaps. Either things are genuinely solid, or there\u2019s a blind spot only an outside eye catches. Either way, worth seeing the ideal flow next.</span></div>';
-    diag.appendChild(l);
-  } else {
-    weak.forEach(function(w,i){
-      var col=w.state==='shaky'?'rgba(251,191,36,.9)':'rgba(248,113,113,.9)';
-      var l=document.createElement('div');l.className='diagcard '+w.state;
-      l.innerHTML='<div class="digi '+w.state+'"><svg viewBox="0 0 24 24" fill="none" stroke="'+col+'" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="'+S3_WARN+'"/></svg></div><div class="diagbody"><b>'+w.stage.name+' · '+s3_gapLabel(w.state)+'</b><span>'+w.insight+'</span></div>';
-      diag.appendChild(l); setTimeout(function(){l.classList.add('in');},150+i*280);
-    });
-  }
-  var delay=150+weak.length*280+300, a=document.getElementById('s3-actions');
-  setTimeout(function(){
-    a.innerHTML='<button class="btn btn-primary" id="s3-ideal">See your flow vs the ideal</button>';
-    a.classList.add('show');
-    document.getElementById('s3-ideal').addEventListener('click',s3_renderIdeal);
-  },delay);
-}
-
-function s3_renderIdeal(){
+function s3_renderResults(){
   s3_chainRafs.forEach(function(s){s();});s3_chainRafs=[];
+  s3_paintProg();
+  document.getElementById('s3-body').innerHTML='';
   document.getElementById('s3-diag').innerHTML='';
   document.getElementById('s3-actions').classList.remove('show');
-  document.getElementById('s3-prog').style.display='none';
-  var body=document.getElementById('s3-body'); body.innerHTML='';
+  document.getElementById('s3-actions').innerHTML='';
+
+  var screen=document.getElementById('screen3');
+  var stageEl=document.querySelector('#screen3 .s3-stage');
+  screen.classList.add('s3-results-active');
+  if(stageEl) stageEl.classList.add('s3-results-mode');
+
   var data=s3_collectGaps();
+  var missingN=0, shakyN=0, solidN=0;
+  s3_answers.forEach(function(a){ if(a==='missing')missingN++; else if(a==='shaky')shakyN++; else if(a==='solid')solidN++; });
 
-  var wrap=document.createElement('div'); wrap.className='s3-compare-wrap';
-  wrap.innerHTML='<p class="s3-compare-intro">Top row is <strong style="color:rgba(255,255,255,.75)">where you are today</strong> based on your answers. Bottom row is <strong style="color:rgba(34,211,238,.85)">where a smooth operation lands</strong> — with what to fix at each stage.</p>';
-  wrap.insertAdjacentHTML('beforeend', s3_legendHtml());
+  var body=document.getElementById('s3-body');
+  var root=document.createElement('div'); root.className='s3-results';
 
-  var rowYou=document.createElement('div'); rowYou.className='s3-compare-row';
-  rowYou.innerHTML='<div class="s3-row-tag">You today</div>';
-  rowYou.appendChild(s3_buildChainRow('you', function(i){ return s3_answers[i]||'missing'; }, function(i){ return s3_answers[i]||'missing'; }));
-  wrap.appendChild(rowYou);
+  var head=document.createElement('div'); head.className='s3-results-head';
+  head.innerHTML=
+    '<div class="s3-results-title">Your flow vs the ideal</div>'+
+    '<p class="s3-results-sub">Based on your answers, here\u2019s what\u2019s working, what\u2019s fragile, and what\u2019s missing — plus how to close each gap.</p>';
+  root.appendChild(head);
 
-  var bridge=document.createElement('div');
-  bridge.className='s3-compare-bridge';
-  bridge.textContent=data.gaps.length?('\u2193 '+data.gaps.length+' gap'+(data.gaps.length>1?'s':'')+' to close'):'\u2193 looking good — see ideal below';
-  wrap.appendChild(bridge);
+  var pills=document.createElement('div'); pills.className='s3-results-summary';
+  if(missingN) pills.innerHTML+='<span class="s3-sum-pill missing">'+missingN+' missing</span>';
+  if(shakyN) pills.innerHTML+='<span class="s3-sum-pill shaky">'+shakyN+' need work</span>';
+  if(solidN) pills.innerHTML+='<span class="s3-sum-pill solid">'+solidN+' solid</span>';
+  root.appendChild(pills);
 
-  var rowIdeal=document.createElement('div'); rowIdeal.className='s3-compare-row';
-  rowIdeal.innerHTML='<div class="s3-row-tag">Ideal flow</div>';
-  var idealChain=document.createElement('div'); idealChain.className='chain ideal';
-  S3_FLOW.stages.forEach(function(s,i){
-    var stEl=document.createElement('div'); stEl.className='cstage';
-    stEl.innerHTML='<div class="cnode" id="s3-ideal-'+i+'"><canvas width="34" height="34"></canvas></div><div class="cname">'+s.name+'</div><div class="cfix" id="s3-if'+i+'">'+s.fix+'</div>';
-    idealChain.appendChild(stEl);
+  root.insertAdjacentHTML('beforeend', s3_legendHtml());
+
+  var cards=document.createElement('div'); cards.className='s3-result-cards';
+  S3_FLOW.stages.forEach(function(st,i){
+    var state=s3_answers[i]||'missing';
+    var card=document.createElement('div');
+    card.className='s3-result-card '+state;
+    card.style.animationDelay=(0.08+i*0.07)+'s';
+    var html=
+      '<div class="s3-result-top">'+
+        '<span class="s3-result-num">'+(i+1)+'</span>'+
+        '<span class="s3-result-name">'+st.name+'</span>'+
+        '<span class="s3-result-badge '+state+'">'+s3_gapLabel(state)+'</span>'+
+      '</div>'+
+      '<div class="s3-result-you"><b>Where you are</b>'+s3_statusLine(state)+'</div>';
+    if(state==='solid'){
+      html+='<div class="s3-result-ok">Keep this rhythm going.</div>'+
+        '<div class="s3-result-ideal"><b>Ideal looks like</b><span>'+st.fix+'</span></div>';
+    } else {
+      html+='<div class="s3-result-insight"><b style="display:block;font-size:clamp(10px,1.05vw,12px);letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.4);margin-bottom:4px;">Why it matters</b>'+
+        (state==='shaky'?st.diag.shaky:st.diag.missing)+'</div>'+
+        '<div class="s3-result-ideal"><b>Close this gap</b><span>'+st.fix+'</span></div>';
+    }
+    card.innerHTML=html;
+    cards.appendChild(card);
   });
-  rowIdeal.appendChild(idealChain);
-  wrap.appendChild(rowIdeal);
-  body.appendChild(wrap);
-
-  idealChain.querySelectorAll('.cstage').forEach(function(st,i){
-    var cnv=document.getElementById('s3-ideal-'+i).querySelector('canvas');
-    s3_chainRafs.push(s3_runCanvas(cnv,i,'live'));
-    setTimeout(function(){
-      document.getElementById('s3-ideal-'+i).className='cnode solid';
-      st.classList.add('done');
-      document.getElementById('s3-if'+i).classList.add('show');
-    },400+i*180);
-  });
-
-  var panel=document.createElement('div'); panel.className='s3-gap-panel';
-  if(data.solid.length){
-    var sum=document.createElement('div'); sum.className='s3-solid-summary';
-    sum.textContent='Looking solid: '+data.solid.join(', ')+'.';
-    panel.appendChild(sum);
-  }
-  if(data.gaps.length){
-    var gh=document.createElement('div'); gh.className='s3-gap-head';
-    gh.textContent='What to fix — and why it matters';
-    panel.appendChild(gh);
-    data.gaps.forEach(function(g,i){
-      var item=document.createElement('div'); item.className='s3-gap-item '+g.state;
-      item.style.animationDelay=(0.15+i*0.12)+'s';
-      item.innerHTML=
-        '<div class="s3-gap-top"><span class="s3-gap-stage">'+g.stage.name+'</span><span class="s3-gap-badge '+g.state+'">'+s3_gapLabel(g.state)+'</span></div>'+
-        '<div class="s3-gap-insight">'+g.insight+'</div>'+
-        '<div class="s3-gap-fix"><span class="s3-gap-fix-label">Fix</span><span class="s3-gap-fix-text">'+g.fix+'</span></div>';
-      panel.appendChild(item);
-    });
-  } else {
-    var ok=document.createElement('div'); ok.className='s3-gap-head';
-    ok.textContent='No major gaps flagged — the ideal flow shows what great looks like end to end.';
-    panel.appendChild(ok);
-  }
-  body.appendChild(panel);
+  root.appendChild(cards);
+  body.appendChild(root);
 
   var a=document.getElementById('s3-actions');
   var note=data.gaps.length
-    ? 'We can help you close these gaps stage by stage — starting with the ones marked Missing.'
-    : 'Even without major gaps, a quick conversation can pressure-test whether anything\u2019s hiding between the stages.';
+    ? 'You have '+data.gaps.length+' gap'+(data.gaps.length>1?'s':'')+' we can help close — starting with the ones marked Missing.'
+    : 'No major gaps flagged. We can still walk through what the ideal flow looks like in practice.';
   setTimeout(function(){
-    a.innerHTML='<p class="s3-actions-note">'+note+'</p><button class="btn btn-primary" id="s3-talk">Let\u2019s close these gaps</button><button class="btn btn-ghost" id="s3-restart">Start over</button>';
+    a.innerHTML='<p class="s3-actions-note">'+note+'</p>'+
+      '<button class="btn btn-primary" id="s3-talk">Let\u2019s close these gaps</button>'+
+      '<button class="btn btn-ghost" id="s3-restart">Start over</button>';
     a.classList.add('show');
     document.getElementById('s3-restart').addEventListener('click',initScreen3);
-  }, S3_FLOW.stages.length*180+500);
+  }, 600);
+}
+
+function s3_renderDiag(){
+  s3_renderResults();
+}
+
+function s3_renderIdeal(){
+  s3_renderResults();
 }
 
 function stopScreen3(){
@@ -6263,6 +6380,9 @@ function initScreen3(){
   document.getElementById('s3-diag').innerHTML='';
   document.getElementById('s3-actions').innerHTML='';
   document.getElementById('s3-actions').classList.remove('show');
+  document.getElementById('screen3').classList.remove('s3-results-active');
+  var stageEl=document.querySelector('#screen3 .s3-stage');
+  if(stageEl) stageEl.classList.remove('s3-results-mode');
   document.getElementById('s3-prog').style.display='';
   s3_buildProg();
   s3_renderStage(0);
